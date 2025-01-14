@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Generative Storytelling</title>
-    <link>http://localhost:1313/blog/posts/</link>
+    <link>https://www.generativestorytelling.ai/blog/posts/</link>
     <description>Recent content in Posts on Generative Storytelling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2025 23:37:42 -0800</lastBuildDate><atom:link href="http://localhost:1313/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jan 2025 23:37:42 -0800</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing webhooks</title>
-      <link>http://localhost:1313/blog/posts/hook-test-post/</link>
+      <link>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</link>
       <pubDate>Mon, 13 Jan 2025 23:37:42 -0800</pubDate>
       
-      <guid>http://localhost:1313/blog/posts/hook-test-post/</guid>
+      <guid>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</guid>
       <description>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;</description>
       <content>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;
 </content>
@@ -20,10 +20,10 @@
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/blog/posts/my-first-post/</link>
+      <link>https://www.generativestorytelling.ai/blog/posts/my-first-post/</link>
       <pubDate>Sat, 11 Jan 2025 23:37:42 -0800</pubDate>
       
-      <guid>http://localhost:1313/blog/posts/my-first-post/</guid>
+      <guid>https://www.generativestorytelling.ai/blog/posts/my-first-post/</guid>
       <description>&lt;p&gt;My first post&lt;/p&gt;</description>
       <content>&lt;p&gt;My first post&lt;/p&gt;
 </content>

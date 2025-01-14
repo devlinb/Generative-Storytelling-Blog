@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/posts/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/posts/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/tags/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/test-post/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/tags/test-post/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/posts/hook-test-post/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/first/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/tags/first/</loc>
     <lastmod>2025-01-11T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/posts/my-first-post/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/posts/my-first-post/</loc>
     <lastmod>2025-01-11T23:37:42-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/categories/</loc>
+    <loc>https://www.generativestorytelling.ai/blog/categories/</loc>
   </url>
 </urlset>
