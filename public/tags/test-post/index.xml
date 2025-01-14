@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test Post on Generative Storytelling</title>
-    <link>https://www.generativestorytelling.ai/blog/tags/test-post/</link>
+    <link>http://localhost:1313/blog/tags/test-post/</link>
     <description>Recent content in Test Post on Generative Storytelling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2025 23:37:42 -0800</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/test-post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jan 2025 23:37:42 -0800</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/test-post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing webhooks</title>
-      <link>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</link>
+      <link>http://localhost:1313/blog/posts/hook-test-post/</link>
       <pubDate>Mon, 13 Jan 2025 23:37:42 -0800</pubDate>
       
-      <guid>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</guid>
+      <guid>http://localhost:1313/blog/posts/hook-test-post/</guid>
       <description>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;</description>
       <content>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;
 </content>
