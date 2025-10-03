@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  blog:
+    image: nginx:alpine
+    container_name: blog
+    restart: unless-stopped
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog.rule=Host(`www.generativestorytelling.ai`) && PathPrefix(`/blog`)"
+      - "traefik.http.routers.blog.entrypoints=websecure"
+      - "traefik.http.routers.blog.tls=true"
+      - "traefik.http.routers.blog.priority=0"
+      - "traefik.http.services.blog.loadbalancer.server.port=80"
+      - "traefik.docker.network=traefik"
+
+networks:
+  traefik:
+    external: true
