@@ -8,64 +8,18 @@
     <language>en-us</language>
     <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
     <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
-    <lastBuildDate>Mon, 13 Jan 2025 23:37:42 -0800</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Apr 2026 15:30:00 -0700</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Testing webhooks</title>
-      <link>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</link>
-      <pubDate>Mon, 13 Jan 2025 23:37:42 -0800</pubDate>
-      <author>devlin.bentley@gmail.com (Devlin)</author>
-      <guid>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</guid>
-      <description>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;</description>
-      <content>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://www.generativestorytelling.ai/blog/posts/my-first-post/</link>
-      <pubDate>Sat, 11 Jan 2025 23:37:42 -0800</pubDate>
-      <author>devlin.bentley@gmail.com (Devlin)</author>
-      <guid>https://www.generativestorytelling.ai/blog/posts/my-first-post/</guid>
-      <description>&lt;p&gt;My first post&lt;/p&gt;</description>
-      <content>&lt;p&gt;My first post&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>A Vision For Useful Company Wide Agents</title>
       <link>https://www.generativestorytelling.ai/blog/posts/useful-corporate-agents/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Apr 2026 15:30:00 -0700</pubDate>
       <author>devlin.bentley@gmail.com (Devlin)</author>
       <guid>https://www.generativestorytelling.ai/blog/posts/useful-corporate-agents/</guid>
-      <description>&lt;h1&gt;&lt;/h1&gt;
-&lt;hr&gt;
-&lt;p&gt;title: &amp;ldquo;A Vision For Useful Company Wide Agents&amp;rdquo;
-date: &amp;ldquo;2026-04-15T15:30:00-07:00&amp;rdquo;
-author: &amp;ldquo;Devlin&amp;rdquo;
-authorTwitter: &amp;ldquo;thedevlinb&amp;rdquo;
-cover: &amp;quot;&amp;quot;
-tags: [&amp;ldquo;AI&amp;rdquo;, &amp;ldquo;agents&amp;rdquo;, &amp;ldquo;workplace&amp;rdquo;]
-description: &amp;ldquo;A vision for company-wide agents that manage knowledge, attention, and cross-tool workflows.&amp;rdquo;
-showFullContent: false
-readingTime: false
-hideComments: false&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;a-vision-for-useful-company-wide-agents&#34;&gt;A Vision For Useful Company Wide Agents&lt;/h1&gt;
-&lt;p&gt;Current business focused agents suck. Some are more useful than others (Notion), some try to be useful (Claude&amp;rsquo;s business offering) but none of them is holistic.&lt;/p&gt;</description>
-      <content>&lt;h1&gt;&lt;/h1&gt;
-&lt;hr&gt;
-&lt;p&gt;title: &amp;ldquo;A Vision For Useful Company Wide Agents&amp;rdquo;
-date: &amp;ldquo;2026-04-15T15:30:00-07:00&amp;rdquo;
-author: &amp;ldquo;Devlin&amp;rdquo;
-authorTwitter: &amp;ldquo;thedevlinb&amp;rdquo;
-cover: &amp;quot;&amp;quot;
-tags: [&amp;ldquo;AI&amp;rdquo;, &amp;ldquo;agents&amp;rdquo;, &amp;ldquo;workplace&amp;rdquo;]
-description: &amp;ldquo;A vision for company-wide agents that manage knowledge, attention, and cross-tool workflows.&amp;rdquo;
-showFullContent: false
-readingTime: false
-hideComments: false&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;a-vision-for-useful-company-wide-agents&#34;&gt;A Vision For Useful Company Wide Agents&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;a-vision-for-useful-company-wide-agents&#34;&gt;A Vision For Useful Company Wide Agents&lt;/h1&gt;
+&lt;p&gt;Current business focused agents suck. Some are more useful than others (Notion), some try to be useful (Claude&amp;rsquo;s business offering) but none of them is holistic.&lt;/p&gt;
+&lt;p&gt;Current agents can search across multiple sources of data. A few can take some actions, moving linear tickets around, even writing code and committing code.&lt;/p&gt;
+&lt;p&gt;Your company probably has a transcription agent listening to every meeting, shoving a transcript into a folder somewhere for it to never be looked at again.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;a-vision-for-useful-company-wide-agents&#34;&gt;A Vision For Useful Company Wide Agents&lt;/h1&gt;
 &lt;p&gt;Current business focused agents suck. Some are more useful than others (Notion), some try to be useful (Claude&amp;rsquo;s business offering) but none of them is holistic.&lt;/p&gt;
 &lt;p&gt;Current agents can search across multiple sources of data. A few can take some actions, moving linear tickets around, even writing code and committing code.&lt;/p&gt;
 &lt;p&gt;Your company probably has a transcription agent listening to every meeting, shoving a transcript into a folder somewhere for it to never be looked at again.&lt;/p&gt;
@@ -88,6 +42,28 @@ hideComments: false&lt;/p&gt;
 &lt;p&gt;After each meeting I attend through the day I am able to quickly tell my CompanyAI what takeaways are most important to me, and also add any to do items to my personal list using just my voice. I can also specifically add new tags or categories that may have come up during the meeting, to help the categorization system with its job.&lt;/p&gt;
 &lt;p&gt;Throughout the day, my attention is focused and purposeful. When distractions do come up, I can quickly prioritize them for later if need be, and know they won&amp;rsquo;t be lost. When I am done with a distraction I can just ask my computer what I was doing, and then jump right back into it.&lt;/p&gt;
 &lt;p&gt;Focus and attention are the most valuable resources we have, let&amp;rsquo;s use AI to amplify them.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Testing webhooks</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</link>
+      <pubDate>Mon, 13 Jan 2025 23:37:42 -0800</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/hook-test-post/</guid>
+      <description>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;</description>
+      <content>&lt;p&gt;Testing if web hooks work.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/my-first-post/</link>
+      <pubDate>Sat, 11 Jan 2025 23:37:42 -0800</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/my-first-post/</guid>
+      <description>&lt;p&gt;My first post&lt;/p&gt;</description>
+      <content>&lt;p&gt;My first post&lt;/p&gt;
 </content>
     </item>
     

@@ -1,5 +1,3 @@
-# 
-
 ---
 
 title: "A Vision For Useful Company Wide Agents"
