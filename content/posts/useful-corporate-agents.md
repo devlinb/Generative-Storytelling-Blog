@@ -33,7 +33,7 @@ The technology is actually there. Heck this can be built in one of two ways - a 
 Local first preserves privacy and is a lot less creepy (an important point to consider for AI products right now). Run a local graph DB, every coworker has an entry, links to all meetings you've had with them, information on what they are working on, what topics they are most knowledgeable about. The next type of nodes in this DB are topic nodes, areas of work within the company. Categories are automatically created, regular cleanup tasks consolidate tags and keep the DB clean. Periodically an agent goes through Slack channels, email, Linear, and so on, pulling new content and prioritizing what needs attention. 
 
 
-Local lets this scale well. You really do want each person to have their own view of the world, and this is one of those problems that scales O(n<sup>2</sup>) with the number of users. Doing this work on the edge saves a lot of resources, but it limits your target audience. An initial product launch would probably be Mac only.
+Local lets this scale well. You really do want each person to have their own view of the world, and this is one of those problems that scales O(n²) with the number of users. Doing this work on the edge saves a lot of resources, but it limits your target audience. An initial product launch would probably be Mac only.
 
 
 
