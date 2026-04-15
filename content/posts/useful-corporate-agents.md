@@ -1,3 +1,16 @@
+---
+title: "A Vision For Useful Company Wide Agents"
+date: "2026-04-15T15:30:00-07:00"
+author: "Devlin"
+authorTwitter: "thedevlinb"
+cover: ""
+tags: ["AI", "agents", "workplace"]
+description: "A vision for company-wide agents that manage knowledge, attention, and cross-tool workflows."
+showFullContent: false
+readingTime: false
+hideComments: false
+---
+
 # A Vision For Useful Company Wide Agents
 
 Current business focused agents suck. Some are more useful than others (Notion), some try to be useful (Claude's business offering) but none of them is holistic.
@@ -57,8 +70,6 @@ After each meeting I attend through the day I am able to quickly tell my Company
 Throughout the day, my attention is focused and purposeful. When distractions do come up, I can quickly prioritize them for later if need be, and know they won't be lost. When I am done with a distraction I can just ask my computer what I was doing, and then jump right back into it.
 
 Focus and attention are the most valuable resources we have, let's use AI to amplify them.
-
-
 
 
 
