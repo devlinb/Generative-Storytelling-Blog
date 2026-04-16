@@ -8,7 +8,103 @@
     <language>en-us</language>
     <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
     <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
-    <lastBuildDate>Wed, 15 Apr 2026 15:30:00 -0700</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Apr 2026 16:44:39 -0700</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI for ADHD</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/ai-for-adhd/</link>
+      <pubDate>Wed, 15 Apr 2026 16:44:39 -0700</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/ai-for-adhd/</guid>
+      <description>&lt;h1 id=&#34;lets-fix-adhd-for-knowledge-workers&#34;&gt;Let&amp;rsquo;s Fix ADHD For Knowledge Workers&lt;/h1&gt;
+&lt;p&gt;There aren&amp;rsquo;t any good accommodations for people with ADHD. Employees are stuck with egg timers at best,and employers are stuck w/o a way to help.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s fix that.&lt;/p&gt;
+&lt;h1 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h1&gt;
+&lt;p&gt;ADHD presents differently in different people. What works below won&amp;rsquo;t help everyone, but holy cow is it better than the current state of the art.&lt;/p&gt;
+&lt;h1 id=&#34;understanding-motivation&#34;&gt;Understanding Motivation&lt;/h1&gt;
+&lt;p&gt;The [BJ Fogg Behavior Model](&lt;a href=&#34;https://behaviordesign.stanford.edu/resources/fogg-behavior-model&#34;&gt;Fogg Behavior Model | Behavior Design Lab&lt;/a&gt; is wonderful for understanding what gets people to do things. Look at this wonderful graph.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;lets-fix-adhd-for-knowledge-workers&#34;&gt;Let&amp;rsquo;s Fix ADHD For Knowledge Workers&lt;/h1&gt;
+&lt;p&gt;There aren&amp;rsquo;t any good accommodations for people with ADHD. Employees are stuck with egg timers at best,and employers are stuck w/o a way to help.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s fix that.&lt;/p&gt;
+&lt;h1 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h1&gt;
+&lt;p&gt;ADHD presents differently in different people. What works below won&amp;rsquo;t help everyone, but holy cow is it better than the current state of the art.&lt;/p&gt;
+&lt;h1 id=&#34;understanding-motivation&#34;&gt;Understanding Motivation&lt;/h1&gt;
+&lt;p&gt;The [BJ Fogg Behavior Model](&lt;a href=&#34;https://behaviordesign.stanford.edu/resources/fogg-behavior-model&#34;&gt;Fogg Behavior Model | Behavior Design Lab&lt;/a&gt; is wonderful for understanding what gets people to do things. Look at this wonderful graph.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;fogg-behav-model_0.png.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;For those who haven&amp;rsquo;t attended one of BJ Fogg&amp;rsquo;s wonderful training courses (they are legitimately amazing), the idea here is that people who are really motivated can do really hard things, but the less motivation people have the less difficult tasks they can take on. We can use &amp;ldquo;prompts&amp;rdquo; to make things happen and build habits, but that is a separate topic.&lt;/p&gt;
+&lt;p&gt;One symptom of ADHD is that it makes things appear harder to do than they really are. Another symptom is fast fall off of motivation, and easily being discouraged. Basically that green line becomes artificially distorted.&lt;/p&gt;
+&lt;p&gt;A key takeaway is that ADHD isn&amp;rsquo;t a motivation problem. People with ADHD have just as much desire to get things done as anyone else. The difference is, if you tell someone with ADHD that washing their car first involves finding a bucket, mop, some dish towels, and soap, they are going to feel overwhelmed and choose to do something else. This is why organizing one&amp;rsquo;s environment is so important with ADHD. If a person with ADHD  wants to regularly clean their car, they are going to keep all of the car cleaning stuff together, even if that means buying extra dish towels just to keep with a dedicated mop and bucket for car washing. Now &amp;ldquo;get ready to clean the car&amp;rdquo; becomes two steps - grab the car cleaning kit, add water.&lt;/p&gt;
+&lt;p&gt;Another example - someone with ADHD who likes to cook may choose to  alphabetize their spice rack. This can dramatically reduce the mental effort to cook complicated dishes.&lt;/p&gt;
+&lt;p&gt;This is the key - minimize unneeded mental &amp;ldquo;prep work&amp;rdquo;, streamline, simplify, reduce the number of steps needed to get started on a task.&lt;/p&gt;
+&lt;h1 id=&#34;lets-ai-the-hell-out-of-this&#34;&gt;Let&amp;rsquo;s AI The Hell Out Of This&lt;/h1&gt;
+&lt;p&gt;Time to throw some local models at this.&lt;/p&gt;
+&lt;p&gt;First off, the interaction modality is always listening voice. Remove even needing to remember another hot key. Keyword activation is the name of the game.&lt;/p&gt;
+&lt;p&gt;The assistant does the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Sets timers for work/break&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reminds them of upcoming meetings and any prep work that is needed before hand&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Maintains a Rolodex of people, names, jobs, etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tracks to-dos&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A more advanced form:&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Goes through email and Slack message, summarizes anything that needs attention&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Maintains notes about particular projects or topics&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, one by one.&lt;/p&gt;
+&lt;h2 id=&#34;timers&#34;&gt;Timers&lt;/h2&gt;
+&lt;p&gt;Timers are great. Timers are the #1 reason why people use Alexa. They aren&amp;rsquo;t generally monetizable in a SaSS sense, despite tons of efforts to try. They need to be easy to set, which is why everyone loves voice timers. They are a must have for any productivity solution. Pomodoro timers work really well for many people and they are easy to add, so add them.&lt;/p&gt;
+&lt;h2 id=&#34;meeting-prep&#34;&gt;Meeting Prep&lt;/h2&gt;
+&lt;p&gt;People manually take notes in Obsidian. Notion automatically takes notes. Zoom automatically takes notes. None of those notes are used for anything. Before every meeting the AI should gather a list of who is in the meeting, do a recap of previous interactions with those people, and prepare links to any needed documents for review. This functionality should be accessible at any time during the day. &amp;ldquo;What documents do I need to review for my meetings today?&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;rolodex&#34;&gt;Rolodex&lt;/h2&gt;
+&lt;p&gt;After a meeting it should be possible to go &amp;ldquo;Hey, DesktopAI, note down that Joel is the expert on our security review process.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;2 months later - &amp;ldquo;Hey DesktopAI, who was the person I spoke to awhile back about our security reviews?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;No more going back through the calendar determining who was in a meeting 2 months ago. Ideally this would be tracked automatically based on meeting transcripts, but baby steps for now.&lt;/p&gt;
+&lt;h2 id=&#34;to-dos&#34;&gt;To-dos&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, add schedule a security review with Joel to my to-dos for tomorrow&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, summarize my to-dos for this morning by priority.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, go through my Slack channels and find anything needing my immediate attention within the next 2 hours, summarize, and add to my to-dos.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, I scheduled that review with Joel, mark it as done.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Integrate with Linear/Jira as desired.&lt;/p&gt;
+&lt;h2 id=&#34;slackemail-integrations&#34;&gt;Slack/Email integrations&lt;/h2&gt;
+&lt;p&gt;Remember when Gmail used to do this, like a decade ago? Wow it was nice.&lt;/p&gt;
+&lt;p&gt;Again, simple enough. There is so much garbage in my inboxes, let me know what actually needs my attention.&lt;/p&gt;
+&lt;h2 id=&#34;topic-notes&#34;&gt;Topic Notes&lt;/h2&gt;
+&lt;p&gt;In the post &lt;a href=&#34;https://www.generativestorytelling.ai/blog/posts/useful-corporate-agents/&#34;&gt;Useful Corporate Agents&lt;/a&gt; I discuss how this should work in depth. The short of it is, there should be a way to have notes on a per topic basis that can be referenced. This keeps life organized in a meaningful way.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, add a note to the front-end rework project that we need to decide on a CSS framework.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hey DesktopAI, for the vendor contracting process, add a note that Xyzg systems is in the running now.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;It should be trivial to pull up all notes about a project. Bonus points if transcriptions from meetings about a project are all automatically summarized and pulled in as well.&lt;/p&gt;
+&lt;h2 id=&#34;a-recap-of-what-weve-fixed&#34;&gt;A Recap Of What We&amp;rsquo;ve Fixed&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Getting ready for a meeting&lt;/strong&gt; -&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt;: Open up the invite, look at who is in it, go through description for any needed docs. Go through previous meeting notes to see what was discussed last time. Check manual rolodex to remember who everyone is and what their specialty is.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt;: You are presented with a list of docs to review, a summary of all previous related meetings, and a brief description of everyone who will be attending. Steps reduced down to just reviewing linked docs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Staying Focused At Work&lt;/strong&gt; -&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt; - Manually start a pomodoro timer up on the computer. First install the app, then remember what it is called. After rebooting, find it again.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt; - No need to remember an app name, just say start a timer. Again, this sounds simple, but the absurd usage #s behind Alexa timers tells a different story.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt; - Manually write everything down on a to-do list and keep portions of it in sync with your workplace&amp;rsquo;s Linear/Jira board (as needed), and other portions to yourself (emails to write, meetings to schedule, etc)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt; - A list is maintained for you, always accessible, always available, and items can be added w/o interrupting flow.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Finding a Subject Matter Expert&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt; - Go through meeting notes manually trying to remember who it was you chatted to a month or two ago&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt; - Just ask your AI.&lt;/p&gt;
+&lt;h1 id=&#34;how-to-build-it&#34;&gt;How To Build It&lt;/h1&gt;
+&lt;p&gt;SaSS or non-SaSS? Locally hosted or not? Macs with 24GB+ of RAM can do all of this with the latest Gemma 4 models running locally. TTS models are now under 1GB of VRAM, pick your favorite STT (ASR) model.&lt;/p&gt;
+&lt;p&gt;Cloud based, hook this all up to your favorite provider. I&amp;rsquo;d still do local TTS to save yourself a ton of money (the CPU only models run just fine now days), but feel free to use whatever &lt;em&gt;-nano&lt;/em&gt; variant you want of a cloud based LLM. None of the above requires anything remotely resembling a frontier model.&lt;/p&gt;
+&lt;h1 id=&#34;build-it-then-what&#34;&gt;Build It, Then What?&lt;/h1&gt;
+&lt;p&gt;Then you get it certified as an accommodation for people with ADHD and you sell it to employers, preferably through insurance companies. Since you&amp;rsquo;ll have the entire market to yourself, enjoy massive profits.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>A Vision For Useful Company Wide Agents</title>
       <link>https://www.generativestorytelling.ai/blog/posts/useful-corporate-agents/</link>
