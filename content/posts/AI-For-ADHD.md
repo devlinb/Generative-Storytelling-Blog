@@ -13,31 +13,21 @@ readingTime = false
 hideComments = false
 +++
 
-
-
 # Let's Fix ADHD For Knowledge Workers
 
 There aren't any good accommodations for people with ADHD. Employees are stuck with egg timers at best,and employers are stuck w/o a way to help.
 
 Let's fix that.
 
-
-
 # Disclaimer
 
 ADHD presents differently in different people. What works below won't help everyone, but holy cow is it better than the current state of the art.
 
-
-
 # Understanding Motivation
 
-The [BJ Fogg Behavior Model]([Fogg Behavior Model | Behavior Design Lab](https://behaviordesign.stanford.edu/resources/fogg-behavior-model) is wonderful for understanding what gets people to do things. Look at this wonderful graph.
+The [Fogg Behavior Model | Behavior Design Lab](https://behaviordesign.stanford.edu/resources/fogg-behavior-model) is wonderful for understanding what gets people to do things. Look at this wonderful graph.
 
-
-
-![](fogg-behav-model_0.png.webp)
-
-
+![](/blog/posts/fogg-behav-model_0.png.webp)
 
 For those who haven't attended one of BJ Fogg's wonderful training courses (they are legitimately amazing), the idea here is that people who are really motivated can do really hard things, but the less motivation people have the less difficult tasks they can take on. We can use "prompts" to make things happen and build habits, but that is a separate topic.
 
@@ -65,31 +55,21 @@ The assistant does the following:
 
 4. Tracks to-dos
 
-
-
 A more advanced form:
 
 5. Goes through email and Slack message, summarizes anything that needs attention
 
 6. Maintains notes about particular projects or topics
 
-
-
 Now, one by one.
-
-
 
 ## Timers
 
 Timers are great. Timers are the #1 reason why people use Alexa. They aren't generally monetizable in a SaSS sense, despite tons of efforts to try. They need to be easy to set, which is why everyone loves voice timers. They are a must have for any productivity solution. Pomodoro timers work really well for many people and they are easy to add, so add them.
 
-
-
 ## Meeting Prep
 
 People manually take notes in Obsidian. Notion automatically takes notes. Zoom automatically takes notes. None of those notes are used for anything. Before every meeting the AI should gather a list of who is in the meeting, do a recap of previous interactions with those people, and prepare links to any needed documents for review. This functionality should be accessible at any time during the day. "What documents do I need to review for my meetings today?"
-
-
 
 ## Rolodex
 
@@ -98,8 +78,6 @@ After a meeting it should be possible to go "Hey, DesktopAI, note down that Joel
 2 months later - "Hey DesktopAI, who was the person I spoke to awhile back about our security reviews?"
 
 No more going back through the calendar determining who was in a meeting 2 months ago. Ideally this would be tracked automatically based on meeting transcripts, but baby steps for now.
-
-
 
 ## To-dos
 
@@ -113,15 +91,11 @@ No more going back through the calendar determining who was in a meeting 2 month
 
 Integrate with Linear/Jira as desired.
 
-
-
 ## Slack/Email integrations
 
 Remember when Gmail used to do this, like a decade ago? Wow it was nice.
 
 Again, simple enough. There is so much garbage in my inboxes, let me know what actually needs my attention. 
-
-
 
 ## Topic Notes
 
@@ -132,8 +106,6 @@ In the post [Useful Corporate Agents]({{< ref "/posts/useful-corporate-agents.m
 "Hey DesktopAI, for the vendor contracting process, add a note that Xyzg systems is in the running now."
 
 It should be trivial to pull up all notes about a project. Bonus points if transcriptions from meetings about a project are all automatically summarized and pulled in as well.
-
-
 
 ## A Recap Of What We've Fixed
 
@@ -159,15 +131,11 @@ It should be trivial to pull up all notes about a project. Bonus points if trans
 
 **After** - Just ask your AI. 
 
-
-
 # How To Build It
 
 SaSS or non-SaSS? Locally hosted or not? Macs with 24GB+ of RAM can do all of this with the latest Gemma 4 models running locally. TTS models are now under 1GB of VRAM, pick your favorite STT (ASR) model.
 
 Cloud based, hook this all up to your favorite provider. I'd still do local TTS to save yourself a ton of money (the CPU only models run just fine now days), but feel free to use whatever *-nano* variant you want of a cloud based LLM. None of the above requires anything remotely resembling a frontier model.
-
-
 
 # Build It, Then What?
 
