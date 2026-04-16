@@ -1,0 +1,9 @@
+{{- $homeLink := $.Site.Home.RelPermalink -}}
+{{- if .IsHome -}}
+  {{- $homeLink = or $.Site.Params.Logo.LogoHomeLink "/" -}}
+{{- end -}}
+<a href="{{ $homeLink }}">
+  <div class="logo">
+    {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
+  </div>
+</a>
