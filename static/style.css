@@ -1,0 +1,15 @@
+/* Keep the CRT texture subtle enough for comfortable reading. */
+.content {
+  isolation: isolate;
+}
+
+.content::after {
+  opacity: 0.3;
+}
+
+/* Render covers and inline images above the scanline overlay (z-index: 2). */
+.content img {
+  position: relative;
+  z-index: 3;
+  background-color: var(--background);
+}

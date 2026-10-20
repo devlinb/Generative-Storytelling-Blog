@@ -13,8 +13,6 @@ readingTime = false
 hideComments = false
 +++
 
-# How Microsoft Kin Helped Bankrupt Sharp Electronics
-
 Preface: Everything in this story is hearsay, told to me by someone who was directly involved in the events but who sometimes embellished around the edges. Also there were many contributing factors to the downfall of Sharp Electronics, however the events that transpired sure didn't help things along.
 
 # Sins Of The Father
