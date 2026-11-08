@@ -39,7 +39,7 @@ There was another classroom next to ours. I never saw or heard anyone in it, but
 
 # Why We Were There
 
-We had problems. All of us. Serious behavioral problems. Some of them were born (mine); some of them were from abuse (many of my classmates). One of the things that set me apart was that I came from a stable home. I had 2 working parents, sure one of them was a functioning alcoholic and the other suffered from her own complex set of personal challenges, but they kept it together a lot better than a lot of other parents I knew[^parents].
+We had problems. All of us. Serious behavioral problems. Some of them were born (mine); some of them were from abuse (many of my classmates). One of the things that set me apart was that I came from a stable home. I had 2 working parents. Yes, one of them was a functioning alcoholic and the other suffered from her own complex set of personal challenges, but they loved me and they kept it together a lot better than many of the other parents I knew[^parents].
 
 Most of the kids around me, no. A lifetime of abuse led to broken kids. 6 hours of intense therapy every day was meant to help. For some of the kids, after 6 hours of safety, they rode a bus to a house where they would get beaten on, or worse.
 
