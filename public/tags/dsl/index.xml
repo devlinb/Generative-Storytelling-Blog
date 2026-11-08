@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dsl on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/dsl/</link>
+    <description>Recent content in Dsl on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Tue, 24 Sep 2024 19:56:55 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/dsl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlock the Full Potential of LLMs: Ditch JSON for DSLs!</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/unlock-the-full-potential-of-llms-ditch-json-for-dsls/</link>
+      <pubDate>Tue, 24 Sep 2024 19:56:55 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/unlock-the-full-potential-of-llms-ditch-json-for-dsls/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re not leveraging DSLs with your LLMs, you might be missing out on significant performance and power. LLMs excel at understanding linguistic cues, making them the perfect match for English-like DSLs. Abandoning JSON tokens, which lack literary significance, and leaning into DSLs, can enhance your LLM&amp;rsquo;s performance.&lt;/p&gt;
+&lt;p&gt;Do the current generation of LLMs handle JSON encoding? Of course, at the cost of extra tokens! If you are using smaller models you may find yourself having to fine tune the model on your output format or using tools that restrict the grammar of the output. But if you intelligently adapt a DSL you can get even reliable output even from vanilla 4B parameter models.&lt;/p&gt;</description>
+      <content>&lt;p&gt;If you&amp;rsquo;re not leveraging DSLs with your LLMs, you might be missing out on significant performance and power. LLMs excel at understanding linguistic cues, making them the perfect match for English-like DSLs. Abandoning JSON tokens, which lack literary significance, and leaning into DSLs, can enhance your LLM&amp;rsquo;s performance.&lt;/p&gt;
+&lt;p&gt;Do the current generation of LLMs handle JSON encoding? Of course, at the cost of extra tokens! If you are using smaller models you may find yourself having to fine tune the model on your output format or using tools that restrict the grammar of the output. But if you intelligently adapt a DSL you can get even reliable output even from vanilla 4B parameter models.&lt;/p&gt;
+&lt;p&gt;Worried about writing a parser for your DSL to JSON? Ask Claude or ChatGPT, this is the type of make-work task that those larger models are great at!&lt;/p&gt;
+&lt;p&gt;Now, in practice, what does this look like?&lt;/p&gt;
+&lt;p&gt;Some of you know I&amp;rsquo;ve been working on (affordably, quickly!) simulating a small town with tiny locally ran LLMs. Here is a comparison of what the JSON for ChatGPT 4o looks like vs a tiny portion of a DSL that a 4b parameter model can reliably generate after only a handful of examples are fed to it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JSON&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timeOfDay&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;08:00&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dayNumber&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;characters&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;BLACKSMITH&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;fromLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;BLACKSMITH_HOUSE&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;toLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;BLACKSMITH_FORGE&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dialogue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time to get to work&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;INNKEEPER&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;fromLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INN&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;toLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INN&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dialogue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Come and get breakfast.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;DSL&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time: 08:00 // 24 hour
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;day: 2 // day number
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Blacksmith
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at: Blacksmith House
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;going: Blacksmith Forge
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dialogue: Time to get to work.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Innkeeper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at: Inn
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;going: Inn
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dialogue: Come and get breakfast.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For just the small snippet above there is a 1/3rd reduction in tokens, a ratio which carries over to the full schema vs. DSL. The difference in input tokens becomes important when doing few shot learning in a system prompt with a small context window, and the difference in output tokens is very important when running LLMs on the edge (phones, user GPUs).&lt;/p&gt;
+&lt;p&gt;The DSL above is trivial, it is just some fields separated by newlines! But being willing to step away from JSON makes the LLM happier, results in faster output generation, and simplifies the tooling needed to get reliable outputs. Now I&amp;rsquo;m still enforcing a CFG on the outputs, but leaning into the language part of Large Language Model enabled reliable output from a 4b parameter (8bit quantized!) model.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

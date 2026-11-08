@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video Streaming on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/video-streaming/</link>
+    <description>Recent content in Video Streaming on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Thu, 11 Jan 2024 22:00:42 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/video-streaming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Only 300 software engineers were needed to launch HBO Max</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/only-300-software-engineers-were-needed-to-launch-hbo-max/</link>
+      <pubDate>Thu, 11 Jan 2024 22:00:42 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/only-300-software-engineers-were-needed-to-launch-hbo-max/</guid>
+      <description>&lt;p&gt;(As with any of my posts this is all from memory and I was an IC at HBO Max and numbers are just hearsay I heard from other engineers)&lt;/p&gt;
+&lt;p&gt;HBO Max launched as a nation&amp;rsquo;s third largest streaming service with only 300 software engineers on staff. The app launched on all available platforms, and a few months later scaled an entire order of magnitude when popcorn movie releases got redirected from theaters on to streaming.&lt;/p&gt;</description>
+      <content>&lt;p&gt;(As with any of my posts this is all from memory and I was an IC at HBO Max and numbers are just hearsay I heard from other engineers)&lt;/p&gt;
+&lt;p&gt;HBO Max launched as a nation&amp;rsquo;s third largest streaming service with only 300 software engineers on staff. The app launched on all available platforms, and a few months later scaled an entire order of magnitude when popcorn movie releases got redirected from theaters on to streaming.&lt;/p&gt;
+&lt;p&gt;Expanding internationally to Latin America and Europe the back end service team grew minimally.&lt;/p&gt;
+&lt;p&gt;The ratio of TPMs to engineers was around 10:1 and engineers actually requested more TPMs be hired.&lt;/p&gt;
+&lt;p&gt;The organization was incredibly flat, as I recall only four layers, and the leader of the entire organization was highly technical and participated in architectural discussions and reviews.&lt;/p&gt;
+&lt;h1 id=&#34;how&#34;&gt;How&lt;/h1&gt;
+&lt;p&gt;This was all made possible by incredibly powerful tooling that allowed for bringing up a new service and little as 3 days. A single command would setup auto scaling, secrets management, network configuration for service endpoints, and a build pipeline.&lt;/p&gt;
+&lt;p&gt;Because services were so easy to set up there was no worry about deprecating old broken out of date code and the simplest solution to a problem was to experiment with new code and a new service. Rapid iteration was the name of the game and the small team size meant that communication was smooth and without conflict. Communication was greatly aided by the number one hiring criteria within HBO Max: don&amp;rsquo;t hire people who aren&amp;rsquo;t nice to work with. Any mention of ego or bad mouthing previous teams or coworkers was an almost instant guaranteed no hire, no matter how good someone did technically.&lt;/p&gt;
+&lt;p&gt;Teams freely went into each other&amp;rsquo;s code to add features and fix bugs and not once did I see politics crop up to prevent work from getting done.&lt;/p&gt;
+&lt;p&gt;The tooling and the culture combined together to make an incredible place to work.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a separate discussion about the quality of the initial streaming apps HBO Max launched with, but I will just say that writing good code across the fragmented streaming media device market is hard unless you have spent years investing in the technological foundations needed to pull off such a feat.&lt;/p&gt;
+&lt;p&gt;In the first year we operated my team had two on call incidents. The next year sadly saw another two or three all bunched up together, which made me sad as that ruined a good 9+ month streak of nothing breaking.&lt;/p&gt;
+&lt;p&gt;As a testament to the quality of infrastructure HBO Max was built on, after the merger with Discovery the HBO Max infrastructure continued to work running on its own with no intervention and only one on call engineer per week per business area.&lt;/p&gt;
+&lt;p&gt;HBO Max had a true CI/CD pipeline. Changes, once approved, were deployed after having passed integration and end to end tests, typically within a couple of hours after having been committed. Teams deployed multiple times per day and the organization itself pushed out hundreds of changes to prod on any given day of the week except for Friday.&lt;/p&gt;
+&lt;p&gt;There were no Open API specs, no protocol buffer definitions, just teams communicating with each other to ensure code kept working.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

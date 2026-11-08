@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game Development on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/game-development/</link>
+    <description>Recent content in Game Development on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Wed, 04 Dec 2024 00:40:12 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/game-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing TinyTown.ai and Locally Ran Narrative Simulation</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/</link>
+      <pubDate>Wed, 04 Dec 2024 00:40:12 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai&#34;&gt;TinyTown.ai&lt;/a&gt; has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is and how it works!&lt;/p&gt;
+&lt;h1 id=&#34;an-intro-to-tinytownai&#34;&gt;An Intro to TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; aims to solve the problem in RPG video games of “I just killed a dragon in front of the entire town, but no one said anything!” No matter how many heroics the player pulls off, only a handful of characters have preprogrammed responses about your accomplishments.&lt;/p&gt;</description>
+      <content>&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai&#34;&gt;TinyTown.ai&lt;/a&gt; has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is and how it works!&lt;/p&gt;
+&lt;h1 id=&#34;an-intro-to-tinytownai&#34;&gt;An Intro to TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; aims to solve the problem in RPG video games of “I just killed a dragon in front of the entire town, but no one said anything!” No matter how many heroics the player pulls off, only a handful of characters have preprogrammed responses about your accomplishments.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; fixes this! Villages realistically react to everything that the hero does. If the hero brings back a large cache of armor, the blacksmith worries about his business, and if the hero slays a large group of monsters, the villagers are all impressed!&lt;/p&gt;
+&lt;p&gt;A key to making this technology actually usable was scaling it down to run on LLMs that can run on consumer GPUs. To that extent, &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; was built to work on even low parameter models. It targets 3B parameter models quantized to 8bit ints, and I believe that with proper pruning the models can be reduced to well under 2B parameters without sacrificing quality.&lt;/p&gt;
+&lt;h1 id=&#34;how-it-works&#34;&gt;How It Works&lt;/h1&gt;
+&lt;p&gt;Unlike other LLM based town simulations, &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; uses a technique I call &lt;em&gt;narrative simulation&lt;/em&gt;. Leaning into the strengths of LLMs, TinyTown.ai takes the players latest actions as input, and outputs a consistent narrative for the town. The actions and dialogue of NPCs naturally flows from this narrative structure. This means you can watch as NPCs organically decide to throw a party for the character, and when that happens they all know to head to the tavern at the right time. It also means that NPCs will come visit the hero when they are in town, or go and visit each other to have conversations that are appropriate to what has happened recently.&lt;/p&gt;
+&lt;p&gt;This simulation technique does not have per-character RAG or history, and LLMs are not used to simulate an NPC’s inner world. Existing RPG game engines already have rich behavioral simulations in them and TinyTown.ai doesn’t aim to replace those existing systems. Instead &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is meant to be a small augmentation that adds a layer of depth to the world by removing one of the major immersion breaking pain points in modern games.&lt;/p&gt;
+&lt;p&gt;That said, it is possible to provide additional behavior and personality data for each NPC, and you can see examples of this on &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; right now.&lt;/p&gt;
+&lt;p&gt;Some final notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The simulation timestep for &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is set to four hours, meaning four hours of events in the town are simulated at a time. This is fully configurable, and the system can be ran in response to player actions instead of being on a timer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There are still some bugs, especially around the front end in regards to rendering. I am not a games programmer, so please excuse my half hearted attempt at a 16-bit game engine!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;why-i-made-tinytownai&#34;&gt;Why I Made TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;I first thought of TinyTown.ai around two years ago, and then the paper &lt;a href=&#34;https://arxiv.org/abs/2304.03442&#34;&gt;Generative Agents: Interactive Simulacra of Human Behavior&lt;/a&gt; came out. When I read the paper and saw the implementation I was impressed, but I also felt that 80% of the results could be had for 20% of the (GPU) effort. Around June of 2024 I finally assembled my collection of loose ideas together and began working on &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt;. There is still more that can be done to expand the simulation w/o incurring too much additional overhead, and hey, maybe I’ll get to that! Right now though my efforts are around getting everything running on smaller and smaller models.&lt;/p&gt;
+&lt;p&gt;If you want to talk more, feel free to get in touch. I can be reached on &lt;a href=&#34;https://bsky.app/profile/thedevlinb.bsky.social&#34;&gt;Bluesky&lt;/a&gt;, &lt;a href=&#34;https://x.com/TheDevlinB&#34;&gt;X&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/devlin-bentley&#34;&gt;LinkedIn&lt;/a&gt; or email at devlin . bentley at gmail.com&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

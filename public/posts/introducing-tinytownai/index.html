@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Introducing TinyTown.ai and Locally Ran Narrative Simulation :: Generative Storytelling</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TinyTown.ai has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what TinyTown...." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/fonts.min.83987ef1dff9ed4bcea3a7aeb468e320d6c52b10b2f1e24a97db84b11823eb4b.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/header.min.e1a31de218efc063f51b07c95cb421b44b8f7cedb8ec6d019955afca30076dcc.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/main.min.c9a154dd011cdb968b906d472af3159f71235bf210c2db7fe94ef8b420462614.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terminal.min.2b2194fecc05dff0c1ba2e57d28d86e20a1d8b3c068aca336140c1e13167d22a.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+<link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/style.css">
+
+
+<link rel="shortcut icon" href="https://www.generativestorytelling.ai/blog/favicon.png">
+<link rel="apple-touch-icon" href="https://www.generativestorytelling.ai/blog/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="Devlin Bentley" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Introducing TinyTown.ai and Locally Ran Narrative Simulation">
+<meta property="og:description" content="TinyTown.ai has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what TinyTown...." />
+<meta property="og:url" content="https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/" />
+<meta property="og:site_name" content="Generative Storytelling" />
+
+  
+  
+    
+  
+  <meta property="og:image" content="https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/cover.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2024-12-04 00:40:12 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/blog/">
+  <div class="logo">
+    Generative Storytelling
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/">Introducing TinyTown.ai and Locally Ran Narrative Simulation</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2024-12-04</time><span class="post-author">Devlin Bentley</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/llm/">llm</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/ai/">AI</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/video-games/">Video games</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/game-development/">Game Development</a>&nbsp;
+      
+    </span>
+  
+  
+  <img src="/blog/posts/introducing-tinytownai/cover.png"
+    class="post-cover"
+    alt="Introducing TinyTown.ai and Locally Ran Narrative Simulation"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <p><a href="https://www.tinytown.ai">TinyTown.ai</a> has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what <a href="https://www.tinytown.ai/">TinyTown.ai</a> is and how it works!</p>
+<h1 id="an-intro-to-tinytownai">An Intro to TinyTown.ai<a href="#an-intro-to-tinytownai" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><a href="https://www.tinytown.ai/">TinyTown.ai</a> aims to solve the problem in RPG video games of “I just killed a dragon in front of the entire town, but no one said anything!” No matter how many heroics the player pulls off, only a handful of characters have preprogrammed responses about your accomplishments.</p>
+<p><a href="https://www.tinytown.ai/">TinyTown.ai</a> fixes this! Villages realistically react to everything that the hero does. If the hero brings back a large cache of armor, the blacksmith worries about his business, and if the hero slays a large group of monsters, the villagers are all impressed!</p>
+<p>A key to making this technology actually usable was scaling it down to run on LLMs that can run on consumer GPUs. To that extent, <a href="https://www.tinytown.ai/">TinyTown.ai</a> was built to work on even low parameter models. It targets 3B parameter models quantized to 8bit ints, and I believe that with proper pruning the models can be reduced to well under 2B parameters without sacrificing quality.</p>
+<h1 id="how-it-works">How It Works<a href="#how-it-works" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Unlike other LLM based town simulations, <a href="https://www.tinytown.ai/">TinyTown.ai</a> uses a technique I call <em>narrative simulation</em>. Leaning into the strengths of LLMs, TinyTown.ai takes the players latest actions as input, and outputs a consistent narrative for the town. The actions and dialogue of NPCs naturally flows from this narrative structure. This means you can watch as NPCs organically decide to throw a party for the character, and when that happens they all know to head to the tavern at the right time. It also means that NPCs will come visit the hero when they are in town, or go and visit each other to have conversations that are appropriate to what has happened recently.</p>
+<p>This simulation technique does not have per-character RAG or history, and LLMs are not used to simulate an NPC’s inner world. Existing RPG game engines already have rich behavioral simulations in them and TinyTown.ai doesn’t aim to replace those existing systems. Instead <a href="https://www.tinytown.ai/">TinyTown.ai</a> is meant to be a small augmentation that adds a layer of depth to the world by removing one of the major immersion breaking pain points in modern games.</p>
+<p>That said, it is possible to provide additional behavior and personality data for each NPC, and you can see examples of this on <a href="https://www.tinytown.ai/">TinyTown.ai</a> right now.</p>
+<p>Some final notes:</p>
+<ul>
+<li>
+<p>The simulation timestep for <a href="https://www.tinytown.ai/">TinyTown.ai</a> is set to four hours, meaning four hours of events in the town are simulated at a time. This is fully configurable, and the system can be ran in response to player actions instead of being on a timer.</p>
+</li>
+<li>
+<p>There are still some bugs, especially around the front end in regards to rendering. I am not a games programmer, so please excuse my half hearted attempt at a 16-bit game engine!</p>
+</li>
+</ul>
+<h1 id="why-i-made-tinytownai">Why I Made TinyTown.ai<a href="#why-i-made-tinytownai" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>I first thought of TinyTown.ai around two years ago, and then the paper <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a> came out. When I read the paper and saw the implementation I was impressed, but I also felt that 80% of the results could be had for 20% of the (GPU) effort. Around June of 2024 I finally assembled my collection of loose ideas together and began working on <a href="https://www.tinytown.ai/">TinyTown.ai</a>. There is still more that can be done to expand the simulation w/o incurring too much additional overhead, and hey, maybe I’ll get to that! Right now though my efforts are around getting everything running on smaller and smaller models.</p>
+<p>If you want to talk more, feel free to get in touch. I can be reached on <a href="https://bsky.app/profile/thedevlinb.bsky.social">Bluesky</a>, <a href="https://x.com/TheDevlinB">X</a>, <a href="https://www.linkedin.com/in/devlin-bentley">LinkedIn</a> or email at devlin . bentley at gmail.com</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/my-first-post/" class="button inline prev">
+        My First Post
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/subscriptions-on-the-microsoft-band/" class="button inline next">
+        Subscriptions on the Microsoft Band
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/blog/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

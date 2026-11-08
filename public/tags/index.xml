@@ -8,7 +8,27 @@
     <language>en-us</language>
     <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
     <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
-    <lastBuildDate>Mon, 06 Jul 2026 13:43:35 -0700</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2026 21:15:47 -0800</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>School</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/school/</link>
+      <pubDate>Fri, 06 Nov 2026 21:15:47 -0800</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/school/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Therapy</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/therapy/</link>
+      <pubDate>Fri, 06 Nov 2026 21:15:47 -0800</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/therapy/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
     <item>
       <title>Band</title>
       <link>https://www.generativestorytelling.ai/blog/tags/band/</link>
@@ -100,6 +120,26 @@
     </item>
     
     <item>
+      <title>RAG</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/rag/</link>
+      <pubDate>Thu, 13 Feb 2025 08:27:53 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/rag/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Smart Home</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/smart-home/</link>
+      <pubDate>Thu, 13 Feb 2025 08:27:53 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/smart-home/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
       <title>Test Post</title>
       <link>https://www.generativestorytelling.ai/blog/tags/test-post/</link>
       <pubDate>Mon, 13 Jan 2025 23:37:42 -0800</pubDate>
@@ -115,6 +155,386 @@
       <pubDate>Sat, 11 Jan 2025 23:37:42 -0800</pubDate>
       <author>devlin.bentley@gmail.com (Devlin)</author>
       <guid>https://www.generativestorytelling.ai/blog/tags/first/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Game Development</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/game-development/</link>
+      <pubDate>Wed, 04 Dec 2024 00:40:12 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/game-development/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Video Games</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/video-games/</link>
+      <pubDate>Wed, 04 Dec 2024 00:40:12 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/video-games/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Embedded</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/embedded/</link>
+      <pubDate>Tue, 22 Oct 2024 21:09:36 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/embedded/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Microsoft Band</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/microsoft-band/</link>
+      <pubDate>Tue, 22 Oct 2024 21:09:36 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/microsoft-band/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Pub-Sub</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/pub-sub/</link>
+      <pubDate>Tue, 22 Oct 2024 21:09:36 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/pub-sub/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Dsl</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/dsl/</link>
+      <pubDate>Tue, 24 Sep 2024 19:56:55 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/dsl/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Openai</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/openai/</link>
+      <pubDate>Thu, 05 Sep 2024 06:42:07 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/openai/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>TypeScript</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/typescript/</link>
+      <pubDate>Thu, 05 Sep 2024 06:42:07 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/typescript/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>HBOMax</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/hbomax/</link>
+      <pubDate>Thu, 11 Jan 2024 22:00:42 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/hbomax/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Video Streaming</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/video-streaming/</link>
+      <pubDate>Thu, 11 Jan 2024 22:00:42 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/video-streaming/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Flask Framework</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/flask-framework/</link>
+      <pubDate>Wed, 18 Oct 2023 07:00:09 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/flask-framework/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/javascript/</link>
+      <pubDate>Wed, 18 Oct 2023 07:00:09 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/javascript/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/node.js/</link>
+      <pubDate>Wed, 18 Oct 2023 07:00:09 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/node.js/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/python/</link>
+      <pubDate>Wed, 18 Oct 2023 07:00:09 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/python/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Chatgpt</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/chatgpt/</link>
+      <pubDate>Thu, 12 Oct 2023 01:58:43 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/chatgpt/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Dall-E2</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/dall-e2/</link>
+      <pubDate>Thu, 12 Oct 2023 01:58:43 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/dall-e2/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Generative Ai</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/generative-ai/</link>
+      <pubDate>Thu, 12 Oct 2023 01:58:43 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/generative-ai/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Next.js</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/next.js/</link>
+      <pubDate>Tue, 25 Apr 2023 07:08:34 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/next.js/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Nuxt</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/nuxt/</link>
+      <pubDate>Tue, 25 Apr 2023 07:08:34 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/nuxt/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Server Side Rendering</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/server-side-rendering/</link>
+      <pubDate>Tue, 25 Apr 2023 07:08:34 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/server-side-rendering/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Ssg</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/ssg/</link>
+      <pubDate>Tue, 25 Apr 2023 07:08:34 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/ssg/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>SSR</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/ssr/</link>
+      <pubDate>Tue, 25 Apr 2023 07:08:34 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/ssr/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Multitasking</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/multitasking/</link>
+      <pubDate>Fri, 31 Mar 2023 18:06:01 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/multitasking/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Wearable Technology</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/wearable-technology/</link>
+      <pubDate>Fri, 31 Mar 2023 18:06:01 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/wearable-technology/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Joule</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/joule/</link>
+      <pubDate>Wed, 25 Jan 2023 07:56:56 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/joule/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>ARM</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/arm/</link>
+      <pubDate>Wed, 28 Dec 2022 07:27:17 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/arm/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/c&#43;&#43;/</link>
+      <pubDate>Wed, 28 Dec 2022 07:27:17 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/c&#43;&#43;/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Compiler</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/compiler/</link>
+      <pubDate>Wed, 28 Dec 2022 07:27:17 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/compiler/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Compilers</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/compilers/</link>
+      <pubDate>Wed, 28 Dec 2022 07:27:17 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/compilers/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Mcu</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/mcu/</link>
+      <pubDate>Wed, 28 Dec 2022 07:27:17 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/mcu/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Functional Programming</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/functional-programming/</link>
+      <pubDate>Thu, 22 Dec 2022 06:34:29 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/functional-programming/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Object Oriented Programming</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/object-oriented-programming/</link>
+      <pubDate>Thu, 22 Dec 2022 06:34:29 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/object-oriented-programming/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Software Architecture</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/software-architecture/</link>
+      <pubDate>Thu, 22 Dec 2022 06:34:29 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/software-architecture/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Software Engineering</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/software-engineering/</link>
+      <pubDate>Thu, 22 Dec 2022 06:34:29 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/software-engineering/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Backend</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/backend/</link>
+      <pubDate>Fri, 09 Dec 2022 07:47:26 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/backend/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Microservices</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/microservices/</link>
+      <pubDate>Fri, 09 Dec 2022 07:47:26 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/microservices/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Programming Blogs</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/programming-blogs/</link>
+      <pubDate>Fri, 09 Dec 2022 07:47:26 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/programming-blogs/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Software Development</title>
+      <link>https://www.generativestorytelling.ai/blog/tags/software-development/</link>
+      <pubDate>Fri, 09 Dec 2022 07:47:26 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/tags/software-development/</guid>
       <description></description>
       <content></content>
     </item>

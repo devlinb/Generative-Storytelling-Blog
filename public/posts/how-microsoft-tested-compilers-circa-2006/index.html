@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>How Microsoft Tested Compilers Circa 2006 :: Generative Storytelling</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="My first job out of college was working on the Windows Mobile Compiler Team (which had previously been the Windows CE compiler team).
+A warning, everything in this post is from memory, and old long-term cached memories at that, so some numbers may be..." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://www.generativestorytelling.ai/blog/posts/how-microsoft-tested-compilers-circa-2006/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/fonts.min.83987ef1dff9ed4bcea3a7aeb468e320d6c52b10b2f1e24a97db84b11823eb4b.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/header.min.e1a31de218efc063f51b07c95cb421b44b8f7cedb8ec6d019955afca30076dcc.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/main.min.c9a154dd011cdb968b906d472af3159f71235bf210c2db7fe94ef8b420462614.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terminal.min.2b2194fecc05dff0c1ba2e57d28d86e20a1d8b3c068aca336140c1e13167d22a.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+<link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/style.css">
+
+
+<link rel="shortcut icon" href="https://www.generativestorytelling.ai/blog/favicon.png">
+<link rel="apple-touch-icon" href="https://www.generativestorytelling.ai/blog/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="Devlin Bentley" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How Microsoft Tested Compilers Circa 2006">
+<meta property="og:description" content="My first job out of college was working on the Windows Mobile Compiler Team (which had previously been the Windows CE compiler team).
+A warning, everything in this post is from memory, and old long-term cached memories at that, so some numbers may be..." />
+<meta property="og:url" content="https://www.generativestorytelling.ai/blog/posts/how-microsoft-tested-compilers-circa-2006/" />
+<meta property="og:site_name" content="Generative Storytelling" />
+
+  <meta property="og:image" content="https://www.generativestorytelling.ai/blog/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-12-28 07:27:17 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/blog/">
+  <div class="logo">
+    Generative Storytelling
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://www.generativestorytelling.ai/blog/posts/how-microsoft-tested-compilers-circa-2006/">How Microsoft Tested Compilers Circa 2006</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2022-12-28</time><span class="post-author">Devlin Bentley</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/compilers/">compilers</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/compiler/">compiler</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/c&#43;&#43;/">C&#43;&#43;</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/arm/">ARM</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/mcu/">mcu</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>My first job out of college was working on the <a href="https://en.wikipedia.org/wiki/Windows_Mobile">Windows Mobile</a> Compiler Team (which had previously been the <a href="https://en.wikipedia.org/wiki/Windows_Embedded_Compact">Windows CE</a> compiler team).</p>
+<p>A warning, everything in this post is from memory, and old long-term cached memories at that, so some numbers may be a bit off, and details not exactly right, but the gist of things should be correct.</p>
+<p>The team consisted of 4 developers and 4 testers, the dev team was 1 lead dev, 2 senior devs, and 1 junior dev, the test team consisted of a non-technical manager who also managed another team, 2 senior SDETs, a vendor, and myself. (I honestly don&rsquo;t recall if we had 2 senior SDETs or just one senior SDET&hellip;)</p>
+<p>The 8 of us were responsible for the backend code generation for the following CPU platforms:</p>
+<ul>
+<li>
+<p>SH4</p>
+</li>
+<li>
+<p>MIPS16</p>
+</li>
+<li>
+<p>MIPS III/IV/V</p>
+</li>
+<li>
+<p>ARMv5</p>
+</li>
+<li>
+<p>ARMv6</p>
+</li>
+<li>
+<p>StrongARM</p>
+</li>
+<li>
+<p>Thumb16</p>
+</li>
+<li>
+<p>Thumb-2</p>
+</li>
+</ul>
+<p>And possibly some others I am forgetting.</p>
+<p>To maintain the quality bar one expects of a compiler, especially one shipping in the embedded space, and a compiler that came with a 5+ year support agreement (if you paid the extra $), the team focused a lot on testing.</p>
+<h1 id="how-do-you-test-a-compiler">How do you test a compiler?<a href="#how-do-you-test-a-compiler" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>To test most software, you ask it to do a thing, the program does that thing, and you check if the output of what it did matches the expected output. But with compilers, the output is machine code, and what exact code is generated is always changing based on new optimizations.</p>
+<p>In reality, for the majority of compiler functional testing (lots of exceptions to this!), you don&rsquo;t care about what exact code the compiler outputs, you just care that the code it outputs performs correctly. For example, if you are compiling a JPEG compressor, the JPEG compressor should, once ran, always output the same images no matter what compiler optimizations are applied. (ignoring opt-in fast math libraries, SSE vs x87 FPU, etc).</p>
+<p>So to test a compiler you compile a bunch of programs that do complicated things, and you run those programs, and make sure they still do those complicated things correctly. Physics simulations, compression algorithms, A/V codecs, encryption, those sorts of things are the perfect way to test that compiler changes don&rsquo;t break real-world code.</p>
+<p>This is just a general overview, there are of course many other types of compiler tests, diving into the depths of <a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> adherence and calling conventions, correctness against the C and C++ standards (there are industry standard test suites that have tests for almost every single line of the various C standards), and plain old fashion stress tests. Negative tests also exist, ensuring the compiler doesn&rsquo;t accept code that looks &ldquo;almost&rdquo; valid.</p>
+<h1 id="3-million-tests">3 million tests?<a href="#3-million-tests" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Here are the steps to generate a test run:</p>
+<ol>
+<li>
+<p>Select which instruction sets you want to test generating code for, e.g. say we want to test ARMv4 and MIPS16</p>
+</li>
+<li>
+<p>Select which sets of compiler flags you want to test with, imagine we want to test with the following compiler flags:</p>
+<ul>
+<li><code>/o2 /gw</code> <code>/o1 /EHc /GF</code></li>
+</ul>
+</li>
+<li>
+<p>Select which sets of linker flags you want to test with, again imagine we choose:</p>
+<ul>
+<li><code>/LTCG /OPT:NOREF</code> <code>/INCREMENTAL /DEBUG</code></li>
+</ul>
+</li>
+<li>
+<p>For each test, run it using all combinations of the above architectures, compiler, and linker flags. For the given example here is what each test would compile/link with:</p>
+<ol>
+<li>
+<p>ARMv4</p>
+<ul>
+<li>
+<p><code>/o2 /gw</code> - <code>/LTCG /OPT:NOREF</code></p>
+</li>
+<li>
+<p><code>/o2 /gw</code> - <code>/INCREMENTAL /DEBUG</code></p>
+</li>
+<li>
+<p><code>/o1 /EHc /GF</code> - <code>/LTCG /OPT:NOREF</code></p>
+</li>
+<li>
+<p><code>/o1 /EHc /GF</code> - <code>/INCREMENTAL /DEBUG</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>MIPS16</p>
+<ul>
+<li>
+<p><code>/o2 /gw</code> - <code>/LTCG /OPT:NOREF</code></p>
+</li>
+<li>
+<p><code>/o2 /gw</code> - <code>/INCREMENTAL /DEBUG</code></p>
+</li>
+<li>
+<p><code>/o1 /EHc /GF</code> - <code>/LTCG /OPT:NOREF</code></p>
+</li>
+<li>
+<p><code>/o1 /EHc /GF</code> - <code>/INCREMENTAL /DEBUG</code></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>With this very small set of architectures and flags, every single test is going to run 8 times. A typical test run could easily have 6 architectures, 4 or 5 sets of compiler flags, and another 3 or 4 sets of linker flags.</p>
+<p>That is how we ended up running millions of test cases per week.</p>
+<h1 id="inventing-distributed-computing-before-it-was-cool">Inventing Distributed Computing Before It Was Cool<a href="#inventing-distributed-computing-before-it-was-cool" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Microsoft was a pioneer in advanced test systems that distributed a large number of tests across network-attached machines, but the tool the WinCE compiler team used was way beyond anything that existed in the company at the time.</p>
+<p>Made by one engineer, who rightfully got promoted to senior afterward (and who promptly left the team, opening the headcount for my hiring), the tool, called CLTT (Compiler Linker Testing Tool), was one of the most advanced testing tools I&rsquo;ve ever had the pleasure of using, while also being coded to one of the strangest coding standards I&rsquo;ve ever seen.</p>
+<h2 id="what-made-it-cool">What Made It Cool<a href="#what-made-it-cool" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>3 million tests, over 90% code coverage. Remember this was before SSDs, heck it was before multi-core CPUs. What&rsquo;s more, we didn&rsquo;t have accurate emulators for most of the platforms we were testing on, (even virtual machines were a new concept at the time) so a very large percentage of the tests ran on various non-x86 hardware.</p>
+<p>Remember, a compiler test is: compile a program; run that program; verify the output of the program is correct.</p>
+<p>3 million tests, running on a wide (wide!) variety of different hardware platforms, how was that possible?</p>
+<p>The answer is CLTT&rsquo;s insane, distributed, self-healing architecture. It looked something like this:</p>
+<ol>
+<li>
+<p>A lab full of ~50 Windows PCs, running actual Windows installs, each had a CLTT client app running on them ready to receive commands</p>
+</li>
+<li>
+<p>A few dozen hardware test devices encompassing the different CPU architectures we supported</p>
+</li>
+<li>
+<p>A network-controllable USB switch that allowed connecting any of the test devices to any of the lab PCs</p>
+</li>
+<li>
+<p>A pretty good ARM emulator</p>
+</li>
+</ol>
+<p>That starts to cover the distributed part of things, so what did I mean by self healing?<br>
+To understand that, let&rsquo;s first go over what a test run is in more detail:</p>
+<ol>
+<li>
+<p>A test run is defined with a set of compiler and linker flags</p>
+</li>
+<li>
+<p>A test suite is a collection of tests, a test suite can override the compiler and linker flags of the test run. (I don&rsquo;t recall all the details here, the system was obscenely flexible)</p>
+</li>
+<li>
+<p>A test case is a bunch of source files and also whatever the execution command was that should be run after compilation, again IIRC test cases could have pre-test steps that did stuff (e.g. generating source files on the fly) and may have also had the ability to override flags. Test cases also contained metadata about what platforms the test could run on, did that test support being run in an emulator, and so forth. Finally test cases had cleanup logic to reset the test machine back to a known good state (tests could literally do anything and some of them did quite a lot!)</p>
+</li>
+</ol>
+<p>When a test run is generated, the resultant permutations of test cases + flags were packaged up into bundles of similar settings, so for example 10 test suites that amounted to a thousand ARMv6 tests with the same compiler and linker flags would be placed into a bundle together. After these bundles were created, they were dispatched to the lab machines.</p>
+<p>This is where the self-healing aspect comes in:</p>
+<ol>
+<li>
+<p>If a test machine fails to respond to the test control server, the test team got an email, and the test machine was automatically taken out of rotation</p>
+</li>
+<li>
+<p>If a test suite failed to execute all its tests (not just if a test failed, but if a test failed to run/return results), the test suite was re-tried on another test machine before it was marked as failed</p>
+</li>
+<li>
+<p>After so many occurrences of a test device failing to execute a test (return results), the test device was taken out of the test device pool</p>
+</li>
+</ol>
+<p>The system retried as hard as it could and even retried tests on a different machine in case there was some random fluke, before giving up. Throughout the 2 or 3 days it took to complete a test run, as lab machines and test devices died (as they were wont to do), the test run kept on going.</p>
+<p>By the end of it all, over 96% of tests would pass. CLTT had a web front end that allowed us to quickly re-run entire test suites and update their status within the overall test run if we suspected that a large number of failures were due to things like &ldquo;all test devices for this CPU architecture died before this test suite ran&rdquo;.</p>
+<p>Typically another 3 or 4 days would be spent manually verifying the remaining failures, which brings me to the next cool part about CLTT</p>
+<h1 id="the-worlds-best-repo-button">The world&rsquo;s best repo button<a href="#the-worlds-best-repo-button" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Reproducing test failures locally sucks, unless you are working with CLTT.</p>
+<p>Here is how you locally reproduce a test failure in CLTT:</p>
+<ol>
+<li>
+<p>Press the &ldquo;reproduce test locally&rdquo; button and a ZIP file of the test is emailed to you</p>
+</li>
+<li>
+<p>Download and extract the ZIP, there is a repo.bat inside that literally does everything for you</p>
+</li>
+<li>
+<p>If needed, connect to a test device before running repo.bat</p>
+</li>
+</ol>
+<p>That is it! It was absolutely wonderful. Step 3 was a bit interesting, but that was an internal MS networking detail that isn&rsquo;t pertinent to the overall idea.</p>
+<p>I&rsquo;ve yet to see another test tool take the effort to make reproducing test case failures this easy.</p>
+<h1 id="about-that-weird-part">About that weird part<a href="#about-that-weird-part" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>So I said CLTT was a bit weird.</p>
+<p>Every single function returned a boolean. As a result, every function call was wrapped in an <code>if</code> statement. Any data that needed to leave a function was returned though <code>out</code> parameters</p>
+<p>In defense of the programmer, this was .NET 2.0, there were no <code>maybe</code> types, or tuples even. If you squint hard enough, this was a strange way to implement <a href="https://en.m.wikipedia.org/wiki/Option_type">option</a> types.</p>
+<p>The benefit of this was absurdly robust code; almost every layer of the code was designed to be retriable. For example, if the server failed to deploy a bundle to a test machine, the deployment function returned false and the enclosing function incremented the &ldquo;failures seen on this test machine&rdquo; counter and went tried to deploy the bundle to the next test machine. If deploying the bundle kept failing, the server would mark the entire bundle as failed and go on to the next bundle, and so on and so forth up throughout the entire workflow of the test run.</p>
+<p>As mentioned above, the test client was similarly robust, it&rsquo;d keep trying to do its thing, and if one layer of code couldn&rsquo;t complete its task, the next layer above it almost always had some well-thought-out method of somehow progressing the test run forward.</p>
+<p>But, wow, it was a weird code base to work in.</p>
+<p>Also, there was a completely pointless use of dependency injection in one particular place that broke IntelliSense&rsquo;s &ldquo;Find references&rdquo;. I say pointless because there were only two possibilities at the point of DI, so an <code>if</code> statement would have worked just as well.</p>
+<h1 id="other-misc-technical-details">Other misc technical details<a href="#other-misc-technical-details" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Tests were ran on a low footprint windows ce 6/7 image, iirc it was about 4 or 8 megabytes in size and only had a console, the C runtime, filesystem, and USB drivers loaded. Super cool that wince could shrink that much.</p>
+<p>When I joined the team the SQL database was missing indexes on some crucial columns, it took me almost a year to get help from someone who knew SQL well enough to get the DB optimized, afterwards query times dropped dramatically.</p>
+<p>There was also a performance framework that had fallen into bit rot that I got back up and running, but I completely forget all details about it.</p>
+<p>Microsoft did code coverage long before it was an industry thing, we had to use a tool suite from Microsoft Research to do code coverage runs!</p>
+<h1 id="summary">Summary<a href="#summary" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>I have likely gotten some things wrong in my recollection, in fact I know there are details about test suites and test cases that I am forgetting. The system was powerful enough that it didn&rsquo;t even have to run compiler tests, it really was one of the most powerful general-purpose test systems I&rsquo;ve ever seen, that happened to be put to use testing the Windows CE team&rsquo;s compilers and linkers. I also didn&rsquo;t describe the absolutely bonker SQL database that test results were put into, or the crazy hardware build that the database ran on (this was back when splitting a database up across multiple machines was not commonly done!).</p>
+<p>It is an unfortunate statement on the lack of progress within the industry (more on that in a future post!) that the first test system I ever used was the best test system I ever used. I hope someday to see another test system that approaches what a lone engineer was able to build all those years ago.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/" class="button inline prev">
+        History of Microsoft Joule (Band v0): Part 1
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/programming-paradigms-limit-what-you-can-do-and-that-is-a-good-thing/" class="button inline next">
+        Programming Paradigms Limit What You Can Do (and that is a good thing!)
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/blog/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Cooperative Multitasking on Microsoft Band :: Generative Storytelling</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="tl;dr
+This is going to be a very technical post, if you are not familiar with different concurrency models and subscription (pub/sub) systems, then I&#39;ll be throwing a lot of new knowledge your way. To make suffering through more enticing, I&#39;m going t..." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/fonts.min.83987ef1dff9ed4bcea3a7aeb468e320d6c52b10b2f1e24a97db84b11823eb4b.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/header.min.e1a31de218efc063f51b07c95cb421b44b8f7cedb8ec6d019955afca30076dcc.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/main.min.c9a154dd011cdb968b906d472af3159f71235bf210c2db7fe94ef8b420462614.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terminal.min.2b2194fecc05dff0c1ba2e57d28d86e20a1d8b3c068aca336140c1e13167d22a.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+<link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/style.css">
+
+
+<link rel="shortcut icon" href="https://www.generativestorytelling.ai/blog/favicon.png">
+<link rel="apple-touch-icon" href="https://www.generativestorytelling.ai/blog/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="Devlin Bentley" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Cooperative Multitasking on Microsoft Band">
+<meta property="og:description" content="tl;dr
+This is going to be a very technical post, if you are not familiar with different concurrency models and subscription (pub/sub) systems, then I&#39;ll be throwing a lot of new knowledge your way. To make suffering through more enticing, I&#39;m going t..." />
+<meta property="og:url" content="https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/" />
+<meta property="og:site_name" content="Generative Storytelling" />
+
+  <meta property="og:image" content="https://www.generativestorytelling.ai/blog/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-03-31 18:06:01 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/blog/">
+  <div class="logo">
+    Generative Storytelling
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/">Cooperative Multitasking on Microsoft Band</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-03-31</time><span class="post-author">Devlin Bentley</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/embedded/">embedded</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/wearable-technology/">Wearable Technology</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/microsoft/">Microsoft</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/microsoft-band/">microsoft band</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/multitasking/">multitasking</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="tldr">tl;dr<a href="#tldr" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>This is going to be a <em>very</em> technical post, if you are not familiar with different concurrency models and subscription (pub/sub) systems, then I&rsquo;ll be throwing a lot of new knowledge your way. To make suffering through more enticing, I&rsquo;m going to summarize how we did things first, then dive into details.</p>
+<ol>
+<li>
+<p>Band used <a href="https://en.wikipedia.org/wiki/Cooperative_multitasking">Cooperative multitasking</a> along with an async, (mostly) lock free IO model. No kernel forcing threads to switch contexts, and no waiting on locks. This dramatically reduces overhead.</p>
+</li>
+<li>
+<p>The single primitive of concurrency was Asynchronous Procedure Calls, basically a function that you can schedule to run at a later time.</p>
+<ul>
+<li>Statically allocated equivalent of closures, no capture, any state that a module needed was statically allocated at compile time, and passed through callbacks. Frequently modules made their callers allocate storage for the module&rsquo;s state, which is downright magical.</li>
+</ul>
+</li>
+<li>
+<p>100% Async IO with callbacks on completion</p>
+</li>
+<li>
+<p>The Microcontroller Unit (a <a href="https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/k-series-arm-cortex-m4/k2x-ks2x-usb/kinetis-k24-120-mhz-full-speed-usb-256kb-sram-microcontrollers-mcus-based-on-arm-cortex-m4-core:K24_120">K24</a>) had a very powerful <a href="https://en.wikipedia.org/wiki/Direct_memory_access#Third-party">DMA engine</a> that was used to offload the majority of IO</p>
+</li>
+<li>
+<p>The CPU slept in an ultra low power state over 96% of the time, except when the screen was on and almost all UI elements were were changing every frame, then it was only asleep ~70% of the time.</p>
+</li>
+</ol>
+<h1 id="intro-to-microsoft-band">Intro To Microsoft Band<a href="#intro-to-microsoft-band" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><a href="https://en.wikipedia.org/wiki/Microsoft_Band_2">Microsoft Band 2</a> was a wearable smart watch that had a 90mhz CPU (downclocked from 120mhz to save power), 256KB of SRAM, 4MB of external SRAM, and a <em>lot</em> of sensors that needed to be read from, some of which had soft real time requirements.</p>
+<p>With only 1MB of flash to store the all executable, code, and one of the world&rsquo;s first tiny curved batteries, power and space was at a premium.</p>
+<p>(I&rsquo;ll mix up Band 1 and 2 freely, at a block diagram level you can treat them as being siblings, Band 2 was an iteration on Band 1).</p>
+<p>Not only was Band powering a lot of sensors, but the UI team was pushing the hardware to its limits: full anti-aliased TrueType fonts, real alpha blending, VSync&rsquo;d at 30FPS, and the touch controller had a worse case latency of 2 frames. At launch, the Microsoft Band dropped fewer frames than an Apple Watch ,while running at less than 1/10th the CPU power, without a dedicated GPU of any sort, and had a battery that could last for up to 3 days. (Fun fact: If a different accelerometer chip had been used, Band 2 would could have reached 5 days of battery life!)</p>
+<p>The rest of this post will describe how modern asynchronous programming practices, written in C, without any heap allocations, were used to provide the impressive performance, and amazing battery life.</p>
+<h1 id="cooperative-multitasking">Cooperative Multitasking<a href="#cooperative-multitasking" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>(If you are familiar with how Node works, what we did will sound familiar, however as an embedded development team we were not familiar with Node and we ended up independently choosing many of the same software engineering patterns.)</p>
+<p>There are two popular ways to handle concurrency, cooperative multitasking and preemptive multitasking. Preemptive systems also often, but not always, use a traditional threading model.</p>
+<p>Everyone reading this is likely familiar with preemptive multithreading: Every few hundred microseconds whatever code is running is suspended, all its state is saved off, and another thread is loaded up and starts running. This all takes a little bit of time, and each thread has a bit of memory overhead, typically the size of the stack plus some book keeping. Because multiple pieces of code are running &ldquo;at the same time&rdquo;, it can result in race conditions when multiple threads try to access the same data of memory. <a href="https://en.wikipedia.org/wiki/Spinlock#Alternatives">Locks or some alternative</a> are used to solve resource contention issues, but it is still easy to run into bugs.</p>
+<p>Band does not have threads or preemption. Band does what many low power systems have historically done, and uses <a href="https://en.wikipedia.org/wiki/Cooperative_multitasking">cooperative multitasking</a>, more specifically Band has one thread of execution, and code uses cooperative multitasking on that one thread.</p>
+<p>With cooperative multitasking, one function runs until it&rsquo;s finished, then returns control to a dispatcher, which then starts running the next function. This avoids worrying about threads, and it side steps race conditions. Everything is controlled by a single loop that keeps track of what function is in line to run next.</p>
+<p>The large downside to cooperative multitasking is if a function gets stuck in an infinite loop, the entire system will become unresponsive because that function never returns control to the dispatcher. Similarly, if one function takes too long to run the entire system will appear laggy and unresponsive.</p>
+<p>Because all code on Band was written in house, we didn&rsquo;t have these particular worries. During internal testing we used a <a href="https://en.wikipedia.org/wiki/Watchdog_timer">watchdog timer</a> set to 20ms for the UI, and ~2ms for everyone else, if any module took more than 2ms before it returned, a crash dump was created and the code was investigated and optimized.</p>
+<p>Used carefully, cooperative multitasking can be a significant savings on CPU and memory vs using threads, and it boasts a simpler mental model that avoids worrying about data races; all in all it was a perfect fit for Band. After we threw in some Async IO and a pub/sub system (deep dive on Band&rsquo;s pub/sub in a future blog post!) we had a lean mean, power, memory, and CPU efficient, personal sensor machine.</p>
+<h1 id="asynchronous-procedure-calls">Asynchronous Procedure Calls<a href="#asynchronous-procedure-calls" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>I mentioned that the dispatch loop is responsible for determining which function gets run next, but what are those functions exactly?</p>
+<p>Asynchronicity is at the heart of Band, including function calls. Band provides a primitive called an Asynchronous Procedure Calls, basically the capability to schedule a function to run at some future point in time, write this line of code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>ScheduleApc(myFunctionPointer, 20)
+</span></span></code></pre></div><p>and your function will run 20 milliseconds from now.</p>
+<p>That is the basics of an APC, and it is an incredibly powerful concurrency primitive, but what I presented above isn&rsquo;t enough, what you actually need is this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>AbortAndEnqueue(functionPtr, contextPtr, delay)
+</span></span></code></pre></div><p>If your function is already set to run, it needs to be removed from the queue of upcoming functions and added back in again<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, and you need the ability to pass parameters into your function, thus a context pointer that should ideally point to a structure containing all the values your function needs to run. (Because this was done in straight C, we used a <code>void *</code>. ;) )</p>
+<p>From a functional programming perspective, this context pointer is basically used to manually capture any state, but it is very flexible and can be used for a lot of other things as well.</p>
+<p>Band&rsquo;s dispatch loop maintained an ordered queue of APCs, by way of <a href="https://www.data-structures-in-practice.com/intrusive-linked-lists/">intrusive linked lists</a>, sorted by <code>delay</code>. Because Band had no heap, the code in charge of managing APCs could not allocate linked list nodes at runtime. Instead, any code that wants to schedule an APC has to statically declare (compile time allocate) a structure like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>typedef void (*ApcCallback)(void* context);
+</span></span><span style="display:flex;"><span>typedef struct Apc {
+</span></span><span style="display:flex;"><span>    ApcCallback callback;
+</span></span><span style="display:flex;"><span>    void* context;
+</span></span><span style="display:flex;"><span>    uint32_t delay;
+</span></span><span style="display:flex;"><span>    // Internal use only below this line
+</span></span><span style="display:flex;"><span>    *Apc previousApc;
+</span></span><span style="display:flex;"><span>    *Apc nextApc;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>At the end of this article is a full example showing usage of APCs.</p>
+<p>Band&rsquo;s usage of intrusive linked lists was an improvement over the original design where the dispatcher maintained its own fixed size ordered queue. The fixed queue size limited the number of APCs in system, and after bumping into the limit enough times we switched over to intrusive lists.</p>
+<p>As an aside on the use of linked list, Band used SRAM with 1 cycle access latency, meaning linked lists were almost as fast as arrays, and as a result Band used them all over the place.</p>
+<p>APCs themselves got used for everything on Band:</p>
+<ul>
+<li>
+<p>The calendar reminder, just schedule an APC for whenever the next event should fire and pass in the event&rsquo;s details through the <code>context</code> pointer.</p>
+</li>
+<li>
+<p>Screen timeout, when the screen turns on, schedule an APC for <em>delay</em> milliseconds to turn the screen off. Every time the user touches the screen, abort the APC and re-enqueue it, thereby resetting the countdown.</p>
+<ul>
+<li>If the user turns the screen off early, just abort the timeout APC</li>
+</ul>
+</li>
+<li>
+<p>The entire sunscreen reminder experience is just a handful of APCs that I designed the logic for in a couple of hours.</p>
+</li>
+</ul>
+<p>APCs with 0 delay are how all IO was done, after the IO finished up, a 0 delay APC was scheduled, which means as soon as the CPU was available, the results of the IO could be handled. No waiting on locks!</p>
+<p>Until you have programmed with them, it is hard to explain just how powerful this concept is.</p>
+<p>Returning to the dispatch loop, we can now understand that it was responsible for determining which Asynchronous Procedure Calls (basically functions that are called when a timer goes off) to run, <a href="https://en.wikipedia.org/wiki/Timer_coalescing">coalescing timers</a> to save power on those APCs, setting hardware timers for waking up the CPU, and finally, controlling power states.</p>
+<h1 id="async-io-with-callbacks">Async IO with callbacks<a href="#async-io-with-callbacks" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Band did not allow blocking IO. Instead, IO worked by requesting an operation, and passing a callback that was to be used to notify of either the result or an error. This is a pretty common pattern now days, but back in 2014 we needed a non-blocking, no malloc, embedded filesystem that was resilient against power loss and data corruption (CRC&rsquo;s at minimum preferred) and we could not find one on the market. Multiple file system vendors outright told us what we wanted was impossible, their basic attitude was that asking for 100% non-blocking was insane, and that we must be fools<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. So we had one man on the team, Bob Lockhart (LinkedIn profile not available sadly), wrote a file system for us from scratch.</p>
+<p>This is another topic I&rsquo;ll need to explore more of in a future post.</p>
+<h1 id="aggressive-sleeping">Aggressive Sleeping<a href="#aggressive-sleeping" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>As mentioned above, Band used APC coalescing to save on power. Timer coalescing is common on mobile products, and in general it means if three tasks are scheduled close together; one in 10 milliseconds, one in 15 milliseconds, and one in 20 millisecond, rather than wake up 3 times in a row, just push the first 2 events back by a bit and run all three tasks 20 milliseconds from now.</p>
+<p>For Band, the contract for scheduling an APC is that the APC would be called <em>no sooner than</em> its delay, but possibly an <em>indefinite time after</em> its delay. Band actually had maximum skew value of several milliseconds, so things never got too out of hand.</p>
+<h1 id="putting-it-all-together">Putting it all together<a href="#putting-it-all-together" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>I&rsquo;ll now show some an example of what writing for Band was like. This code is by no means real, it exists to demonstrate the basic principals of programming with APCs. Business logic is simplified and edge cases are ignored.</p>
+<p>The below code handles sun exposure reminders and is designed to remind people to apply sunscreen when they are outside. The spec for the feature is as follows:</p>
+<ol>
+<li>
+<p>Sun exposure is defined as a UV Index of at least 3</p>
+</li>
+<li>
+<p>If the user has an initial 15 minutes of continuous sun exposure, fire off an alert reminding them to put on sun screen, then every 4 hours (in the actual product is was configurable from 90 minutes to 4 hours) after that show a reminder to re-apply.</p>
+</li>
+<li>
+<p>If after sun exposure starts and an alert has been fired off, a continuous interruption in sun exposure for more than 10 minutes cancels the 4 hours reminder timer a. An interruption for less than 10 minutes does not reset the timer, (bathroom break at the beach) b. After the 4 hours timer is cancelled, subsequent 15 minutes of continuous exposure afterwards will fire off another initial alert</p>
+</li>
+</ol>
+<p>These simple rules are designed to prevent Band from reminding someone to put on sunscreen when they are walking from their car to go inside a store, while at the same time if someone is playing in the sun and goes to the bathroom, the system should track that as being part of a single session. It also will start a new session if someone is at the beach, sits down for lunch inside a restaurant, then goes back outside.</p>
+<p>The code below is simplified from what was on Band, the actual Band combines reading from the screen&rsquo;s automatic light sensor (ALS) and the UV sensor to determine if the wearer is inside or outside, and on an actual Band reminder times were customizable.</p>
+<p>The UI was codenamed Fireball (because we wanted it to be called something cool), which is why you see that mentioned in regards to the UI below.</p>
+<p>Some things to note, the UV sensor takes in a callback an every minute it reports the current UV index to everyone who subscribes. This subscription system was based on C# events.</p>
+<p>And again, apologizes for the rusty, likely very incorrect, C code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> inited <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>Apc uvInitialAlertApc;
+</span></span><span style="display:flex;"><span>Apc uvFourHourAlertApc;
+</span></span><span style="display:flex;"><span>Apc uvCancellationApc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Only show UV alerts if UV index is at least 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Cancel alerts if index falls below 3 for 10 minutes.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#DEFINE UVINDEX_ALERT_THRESHOLD 3
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">structure that describes a subscription, future
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">blog post coming, if you know C# subscriptions 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">you get the gist of it. When the UV sensors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">reads a value, sends to all subscribers via callbacks.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span>UvExposureSubscription uvSub; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Called on system boot
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(inited) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    inited<span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    uvInitialAlertApc.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>uvInitialAlert;
+</span></span><span style="display:flex;"><span>    uvInitialAlertApc.context <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>GLOBAL_UI_CONTEXT; <span style="color:#75715e">// Handle to UI framework
+</span></span></span><span style="display:flex;"><span>    uvFourHourAlertApc.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>uvFourHourAlert;
+</span></span><span style="display:flex;"><span>    uvFourHourAlertApc.context<span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>GLOBAL_UI_CONTEXT;
+</span></span><span style="display:flex;"><span>    uvCancellationApc.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>cancelAlerts;
+</span></span><span style="display:flex;"><span>    uvCancellationApc.context <span style="color:#f92672">=</span> null;
+</span></span><span style="display:flex;"><span>    uvSub.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>uvExposureHandlerInitial;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Subscribe to the UV module
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">UvExposureModule_Subscribe</span>(uvSub);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Subscription handler from the module that calculates UV exposure.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Every 1 minute UV module calls its subscribers and reports
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// the detected UV Index.
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">uvExposureHandlerInitial</span>(<span style="color:#66d9ef">uint8_t</span> uvIndex) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(uvIndex <span style="color:#f92672">&lt;=</span> UVINDEX_ALERT_THRESHOLD) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AbortAndEnqueue</span>(uvInitialAlertApc, <span style="color:#a6e22e">MINS_TO_MS</span>(<span style="color:#ae81ff">15</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AbortAndEnqueue</span>(uvCancellationApc, <span style="color:#a6e22e">MINS_TO_MS</span>(<span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Next line changes what callback handles summing exposure values,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  in essence this is progressing  our state machine.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  */</span>
+</span></span><span style="display:flex;"><span>  uvSub.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>uvExposureHandler; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Called every 1 minute after initial exposure
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">uvExposureHandler</span>(<span style="color:#66d9ef">uint8_t</span> index) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(index <span style="color:#f92672">&gt;=</span> UVINDEX_ALERT_THRESHOLD) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// Reset the cancellation APC to another 10 minutes
+</span></span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">AbortAndEnqueue</span>(uvCancellationApc, <span style="color:#a6e22e">MINS_TO_MS</span>(<span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// If below alert threshold, do nothing, cancellation 
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// apc will take care of things.
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Will get called after 15 minutes
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">uvInitialAlert</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> uiContext) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">FireballUI_SendMessage</span>((FbContext) uiContext, INITIAL_UV_ALERT);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// On real Band, user was given choice after initial alert
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// if they wanted to receive future alerts.
+</span></span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AbortAndEnqueue</span>(uvFourHourApc, <span style="color:#a6e22e">HOURS_TO_MS</span>(<span style="color:#ae81ff">4</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">uvFourHourAlert</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> uiContext) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// No need to check exposure threshold, if not cancelled, good to go
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">FireballUI_SendMessage</span>((FbContext) uiContext, SUNSCREEN_REMINDER);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">AbortAndEnqueue</span>(uvFourHourApc, <span style="color:#a6e22e">HOURS_TO_MS</span>(<span style="color:#ae81ff">4</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This gets called if UV index has been below 3 for
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// the last 10 minutes.
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">cancelAlerts</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// We don&#39;t know which is runnign so abort both.
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Aborting an APC that isn&#39;t scheduled is a no-op.
+</span></span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AbortApc</span>(uvFourHourApc);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AbortApc</span>(uvInitialAlertApc);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Go back to the initial uv handler, reseting our state
+</span></span></span><span style="display:flex;"><span>  uvSub.callback <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>uvExposureHandlerInitial;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>When proposing APCs as our concurrency primitive I actually had to prove the need for dequeuing to the team, if you don&rsquo;t always dequeue first you end up in some strange situations regarding state&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Now days multiple open source solutions exist that fulfill all these requirements&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/you-probably-dont-need-server-side-rendering/" class="button inline prev">
+        You (Probably) Don&#39;t Need Server Side Rendering
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-2/" class="button inline next">
+        History of Microsoft Joule (Band v0) Part 2
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/blog/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

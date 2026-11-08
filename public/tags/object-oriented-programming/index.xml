@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Object Oriented Programming on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/object-oriented-programming/</link>
+    <description>Recent content in Object Oriented Programming on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Thu, 22 Dec 2022 06:34:29 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/object-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programming Paradigms Limit What You Can Do (and that is a good thing!)</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/programming-paradigms-limit-what-you-can-do-and-that-is-a-good-thing/</link>
+      <pubDate>Thu, 22 Dec 2022 06:34:29 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/programming-paradigms-limit-what-you-can-do-and-that-is-a-good-thing/</guid>
+      <description>&lt;p&gt;Junior engineers are told that programming paradigms are a way to accomplish new things! Inheritance, pure functions, monads, polymorphism; paradigms unlock new powers!&lt;/p&gt;
+&lt;p&gt;But, the truth is quite the opposite. Programming paradigms limit what you are allowed to do, but that is ok! In fact, here is my thesis statement:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Programming paradigms are a ways to simplify how we code complex systems so our tiny human brains can grasp what is going on.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      <content>&lt;p&gt;Junior engineers are told that programming paradigms are a way to accomplish new things! Inheritance, pure functions, monads, polymorphism; paradigms unlock new powers!&lt;/p&gt;
+&lt;p&gt;But, the truth is quite the opposite. Programming paradigms limit what you are allowed to do, but that is ok! In fact, here is my thesis statement:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Programming paradigms are a ways to simplify how we code complex systems so our tiny human brains can grasp what is going on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A direct example: Class-based object-orientated code requires all functions are attached to a class. This is restricting what the programmer can do, in exchange for simplifying how the code is laid out.&lt;br&gt;
+&lt;a href=&#34;http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html&#34;&gt;No additional power has been gained by forcing all functions to be owned by a class&lt;/a&gt; the only benefit reaped is future maintainers of the code don&amp;rsquo;t have to go around trying to find out where a function is implemented, they know it can be found in the class definition. Boom! One less detail for our limited wetware to keep track of.&lt;/p&gt;
+&lt;p&gt;Functional enthusiasts are more likely to admit to the truth of this, as arguments for FP typically start as &amp;ldquo;if you stop mutating data structures, your life gets a lot easier!&amp;rdquo;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; and then they make some good points about pure functions that don&amp;rsquo;t rely on internal or global state.&lt;/p&gt;
+&lt;p&gt;But, OO peeps, you can still find some of them out there saying that OO gives you additional power!&lt;/p&gt;
+&lt;p&gt;When writing code, here is the thing I want you to remember, above all else:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At the end of the day, everything is compiled/interpreted/JITTed to assembly, therefore no additional capability is gained by a paradigm that could not be implemented by hand in assembly if one so wished.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That is the crux of it. Paradigms limit things so that you and I, the human meat that writes code, can try and understand these incredibly complex systems we build. Some paradigms offer more tools, for sure, but you can do OO in C, heck &lt;a href=&#34;https://en.wikipedia.org/wiki/Multiple_dispatch#C&#34;&gt;you can make a runtime multi-dispatch system in C&lt;/a&gt;, and again, if C isn&amp;rsquo;t powerful enough, then quite literally any idea can be implemented in raw assembly because that is what every programming language has to do at the end of the day.&lt;/p&gt;
+&lt;p&gt;It is worth saying again, paradigms limit us. The first programming paradigm was &lt;a href=&#34;https://en.wikipedia.org/wiki/Structured_programming&#34;&gt;structured programming&lt;/a&gt;, it is something so fundamental to how programming is taught that we don&amp;rsquo;t even think of it as a paradigm anymore. The idea of arranging programs into blocks, having variables only live within those blocks, and having these things called functions, and that those functions are independent from each other, these are all limits placed upon the programmer. And once upon a time, these rules were considered very controversial! &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Microservices are another paradigm; separation of concerns taken to the extreme limit. The only code that is allowed to touch the user profile lives in the user profile services! You cannot even accidentally touch the user profile from anywhere else. Again, simplifying what the old wetware has to deal with.&lt;/p&gt;
+&lt;p&gt;tl;dr: Paradigms make you think less but also restrict what you can do, pick the paradigm that works best for the problem you are trying to solve, no one paradigm is superior to all others for every single use case.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;I used to believe this then I witnessed redux reducing websites to a crawl when people typed data into simple textbox. Turns out that copying entire strings to change a single letter, is, to put it bluntly, stupid.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Of course, nowadays we know we can break these rules in some circumstances, e.g. Exception handling violates the gotos are harmful rule.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

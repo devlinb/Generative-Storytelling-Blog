@@ -105,5 +105,204 @@
 </content>
     </item>
     
+    <item>
+      <title>Let&#39;s Do Some Actual Innovative Sh*t</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/lets-do-some-actual-innovative-sht/</link>
+      <pubDate>Thu, 13 Feb 2025 08:27:53 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/lets-do-some-actual-innovative-sht/</guid>
+      <description>&lt;p&gt;Remember back before everything was SaSS and companies had original ideas? Back when tech companies designed cool stuff under the expectation that they’d sell cool stuff to customers for money and the customers would be happy?&lt;/p&gt;
+&lt;p&gt;Well all that is dead because everything has to run in the cloud to justify a monthly fee. This is why 90% of the AI product ideas are not ambitious, they have an underlying need to force an always on internet connection to a cloud service provider so they can justify charging you a bunch of money every month.&lt;/p&gt;</description>
+      <content>&lt;p&gt;Remember back before everything was SaSS and companies had original ideas? Back when tech companies designed cool stuff under the expectation that they’d sell cool stuff to customers for money and the customers would be happy?&lt;/p&gt;
+&lt;p&gt;Well all that is dead because everything has to run in the cloud to justify a monthly fee. This is why 90% of the AI product ideas are not ambitious, they have an underlying need to force an always on internet connection to a cloud service provider so they can justify charging you a bunch of money every month.&lt;/p&gt;
+&lt;p&gt;Let’s fix all that and return to the halcyon days of the late 90s when people tried to dream up of cool stuff technology might do some day.&lt;/p&gt;
+&lt;h1 id=&#34;ground-rules&#34;&gt;Ground Rules&lt;/h1&gt;
+&lt;p&gt;This post will cover stuff that is either possible right now, or at most 1 to 2 years out.&lt;/p&gt;
+&lt;h1 id=&#34;around-the-house&#34;&gt;Around The House&lt;/h1&gt;
+&lt;p&gt;You wake up in the morning, you say “computer, turn on the lights”. A microphone array in your bedroom picks up your voice and sends the command to a locally hosted AI server. The server uses ASR (automatic speech recognition) to understand what you said. The AI knows what room you are based on what mic you used, it can control the lights by sending local commands to the bulbs, no matter what “standard” is being used. The LLM has a RAG database of commonly used scripts to do things around your house, it calls upon these snippets to get things done, filling in parameters as needed. All of this happens locally, no internet connection needed.&lt;/p&gt;
+&lt;p&gt;Getting out of bed, you ask “house, will it rain during recess today?” Even a quantized 40B parameter LLM is smart enough to know you are asking about your son’s recess. Looking at today’s school schedule (School calendar PDF → RAG) and today’s weather report, the LLM sees it will rain after 4pm but that recess is from ten to eleven. Your house replies “It’ll rain this afternoon, no need to waterproof Nathan today, but bring an umbrella when you pick him up after school.”&lt;/p&gt;
+&lt;p&gt;After getting breakfast ready, “House, in 5 minutes start my car.” &lt;a href=&#34;https://en.wikipedia.org/wiki/Chevrolet_Bolt_EUV&#34;&gt;Even though your car doesn’t support automatic warming in the morning, or have an API that can be accessed,&lt;/a&gt; your personal AI machine has no problem accomplishing this. A copy of Android runs in an emulator and the multimodal LLM navigates through the app and starts your car.&lt;/p&gt;
+&lt;p&gt;Getting into your toasty warm car, you drop Nathan off at school and your spouse at the train station, and arrive home to a full day of WFH. Before your first meeting you start a load of laundry. W&lt;a href=&#34;https://www.youtube.com/watch?v=sY9o4Ap1WCo&#34;&gt;hen the load is finished a microphone in proximity to the washing machine can trivially identify the “finished washing” jingle a&lt;/a&gt;nd a voice will tell you that the laundry is ready to go in the dryer. Using basic ASR capabilities, such as silence detection and diarization (to distinguish when you are just talking to yourself), and looking at your calendar, your home AI doesn’t announce the laundry is done until you are finished with your morning meetings.&lt;/p&gt;
+&lt;h1 id=&#34;at-work&#34;&gt;At Work&lt;/h1&gt;
+&lt;p&gt;After your morning standup Zoom ends, you open Hacker News. &lt;a href=&#34;https://xkcd.com/386/&#34;&gt;You see that someone has said something wrong on the Internet&lt;/a&gt;, so of course you must reply. 5 minutes after standup has ended, a voice from your computer reminds you that you asked it to interrupt if you spent more than 5 minutes distracted on social media. Your AI promises to save off your partially written comment, you agree and the distracting browser tabs are all whisked away and you switch over to your terminal and pull down the latest changes from GitHub.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Rubber_duck_debugging&#34;&gt;Throughout the day, your personal LLM is a companion that you interact naturally with back and forth.&lt;/a&gt; Always listening, your LLM can pull up documents in Notion, knows what Jira tickets you are working on, and can dig through your Slack DMs to find relevant conversations. A RAG system that is more than just full text search organizes your work. Metadata about those Notion and Jira tickets has been added, “Computer, add this Notion page to my V2 redesign project notes”.&lt;/p&gt;
+&lt;p&gt;After pushing some changes, you ask your LLM “Please start a PR on GitHub with my latest changes.” A browser window opens with the PR template ready for you to fill out. After opening the PR you send a request out for reviews and fire off another request “bring that Hacker News thread back up from earlier today and timebox it to the next 10 minutes.” A count down timer starts off in the corner as you resume writing your reply.&lt;/p&gt;
+&lt;h1 id=&#34;dinner-time&#34;&gt;Dinner Time&lt;/h1&gt;
+&lt;p&gt;Setting some water to boil on your induction range, a microphone in the kitchen listens for the sound of water boiling and the “smart” stove’s app, again being ran in an emulator, turns the temperature down once bubbling begins. Your home AI, &lt;a href=&#34;https://wballiance.com/wi-fi-sensing-101-an-introduction/#:~:text=So%2C%20what%20is%20it?,management%20markets%2C%20among%20many%20others.&#34;&gt;using Wi-Fi location sensing&lt;/a&gt;, knows you have left the kitchen, so it alerts you that it is time to “add the noodles”. A few minutes later your at home AI hears the oven preheat beep, and once again seeing you have left the kitchen, lets you know the oven is ready.&lt;/p&gt;
+&lt;p&gt;After putting the bread in the oven to bake, you ask “House, pull up that Pesto recipe my wife really liked onto my phone.” You verbally asked your house to track the pesto recipe last time you made it, and the page on your phone’s browser was bookmarked and saved off into a RAG database with appropriate metadata that allowed it to be quickly fetched again.&lt;/p&gt;
+&lt;h1 id=&#34;rest-and-relaxation&#34;&gt;Rest and Relaxation&lt;/h1&gt;
+&lt;p&gt;Your home AI does what a half dozen smart home standards never could do - Finally integrate everything together. Your home AI can write code to directly hit endpoints for smart switches or bulbs, or it can interact with any number of smart apps as if it where a regular, human, user. Controlling your lights, TV, window blinds, everything works through your home AI, because it doesn’t care about standards or walled gardens, it is capable of doing whatever is necessary to get the job done.&lt;/p&gt;
+&lt;p&gt;Case in point, your Android TV doesn’t support remote wake on Wi-Fi, but an IR blaster + Home AI takes care of this for you. Also, annoyingly Google disables voice control on Android TV if you opt out of ads and tracking, but not a problem, as your personal home AI can search across VOD providers and chrome cast to your TV.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Today’s technology, and a little bit of cleverness, can do amazing things. Unfortunately the current players in the AI market are not incentivized to make things work for customers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Google needs display ads, any feature that reduces the number of ads someone sees is going to get killed. Because Google is one of two gate keepers to people’s personal lives (Apple being the other major player), it will take a lot of effort to work around all the roadblocks Google is going to erect to stop what is an existential threat to their business model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apple could pull a lot of the above off, but outside of a few narrow areas, they have demonstrated the repeated inability to generalize their success and market domination to move into other fields.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Facebook also relies on ads, but even if they wanted to accomplish the above, they need to work around phone limitations. Their Meta smart glasses already run into this problem, the glasses are held back due to limitations imposed by the phone.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Outside of Xbox, Microsoft is allergic to consumer hardware (read the rest of my blog for examples!), and their loss of market share in the mobile space also holds them back here. If Microsoft had a viable mobile platform they could leverage that in the ways I describe above as a “hub” to do other things, but that ship has long since sailed. Also Microsoft is currently addicted to showing off CapEx spending through massive datacenter buildouts, and edge computing would go against that vision (even if it proved more profitable in the long term! Microsoft’s empire was built selling software that ran on personal computers!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OpenAI maybe, but again they want to show that CapEx spend.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Rabbit M1 should have been this, they hinted at doing a hosted Android emulator thing, but rumors are that never actually happened.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That said, a sufficiently well funded player in the market could accomplish everything I’ve outlined here. There isn’t anything truly outlandish, just a bunch of boring engineering work with well established technologies. The only thing new would be the model to control a phone, and research in that area is progressing at a steady rate.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Introducing TinyTown.ai and Locally Ran Narrative Simulation</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/</link>
+      <pubDate>Wed, 04 Dec 2024 00:40:12 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai&#34;&gt;TinyTown.ai&lt;/a&gt; has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is and how it works!&lt;/p&gt;
+&lt;h1 id=&#34;an-intro-to-tinytownai&#34;&gt;An Intro to TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; aims to solve the problem in RPG video games of “I just killed a dragon in front of the entire town, but no one said anything!” No matter how many heroics the player pulls off, only a handful of characters have preprogrammed responses about your accomplishments.&lt;/p&gt;</description>
+      <content>&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai&#34;&gt;TinyTown.ai&lt;/a&gt; has launched, if you haven’t yet, check it out and vote on what the town’s hero will do next! TinyTown.ai represents a new way of simulating RPG towns, and it can be run on even modest local GPUs. In this post I’ll describe what &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is and how it works!&lt;/p&gt;
+&lt;h1 id=&#34;an-intro-to-tinytownai&#34;&gt;An Intro to TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; aims to solve the problem in RPG video games of “I just killed a dragon in front of the entire town, but no one said anything!” No matter how many heroics the player pulls off, only a handful of characters have preprogrammed responses about your accomplishments.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; fixes this! Villages realistically react to everything that the hero does. If the hero brings back a large cache of armor, the blacksmith worries about his business, and if the hero slays a large group of monsters, the villagers are all impressed!&lt;/p&gt;
+&lt;p&gt;A key to making this technology actually usable was scaling it down to run on LLMs that can run on consumer GPUs. To that extent, &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; was built to work on even low parameter models. It targets 3B parameter models quantized to 8bit ints, and I believe that with proper pruning the models can be reduced to well under 2B parameters without sacrificing quality.&lt;/p&gt;
+&lt;h1 id=&#34;how-it-works&#34;&gt;How It Works&lt;/h1&gt;
+&lt;p&gt;Unlike other LLM based town simulations, &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; uses a technique I call &lt;em&gt;narrative simulation&lt;/em&gt;. Leaning into the strengths of LLMs, TinyTown.ai takes the players latest actions as input, and outputs a consistent narrative for the town. The actions and dialogue of NPCs naturally flows from this narrative structure. This means you can watch as NPCs organically decide to throw a party for the character, and when that happens they all know to head to the tavern at the right time. It also means that NPCs will come visit the hero when they are in town, or go and visit each other to have conversations that are appropriate to what has happened recently.&lt;/p&gt;
+&lt;p&gt;This simulation technique does not have per-character RAG or history, and LLMs are not used to simulate an NPC’s inner world. Existing RPG game engines already have rich behavioral simulations in them and TinyTown.ai doesn’t aim to replace those existing systems. Instead &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is meant to be a small augmentation that adds a layer of depth to the world by removing one of the major immersion breaking pain points in modern games.&lt;/p&gt;
+&lt;p&gt;That said, it is possible to provide additional behavior and personality data for each NPC, and you can see examples of this on &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; right now.&lt;/p&gt;
+&lt;p&gt;Some final notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The simulation timestep for &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt; is set to four hours, meaning four hours of events in the town are simulated at a time. This is fully configurable, and the system can be ran in response to player actions instead of being on a timer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There are still some bugs, especially around the front end in regards to rendering. I am not a games programmer, so please excuse my half hearted attempt at a 16-bit game engine!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;why-i-made-tinytownai&#34;&gt;Why I Made TinyTown.ai&lt;/h1&gt;
+&lt;p&gt;I first thought of TinyTown.ai around two years ago, and then the paper &lt;a href=&#34;https://arxiv.org/abs/2304.03442&#34;&gt;Generative Agents: Interactive Simulacra of Human Behavior&lt;/a&gt; came out. When I read the paper and saw the implementation I was impressed, but I also felt that 80% of the results could be had for 20% of the (GPU) effort. Around June of 2024 I finally assembled my collection of loose ideas together and began working on &lt;a href=&#34;https://www.tinytown.ai/&#34;&gt;TinyTown.ai&lt;/a&gt;. There is still more that can be done to expand the simulation w/o incurring too much additional overhead, and hey, maybe I’ll get to that! Right now though my efforts are around getting everything running on smaller and smaller models.&lt;/p&gt;
+&lt;p&gt;If you want to talk more, feel free to get in touch. I can be reached on &lt;a href=&#34;https://bsky.app/profile/thedevlinb.bsky.social&#34;&gt;Bluesky&lt;/a&gt;, &lt;a href=&#34;https://x.com/TheDevlinB&#34;&gt;X&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/devlin-bentley&#34;&gt;LinkedIn&lt;/a&gt; or email at devlin . bentley at gmail.com&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Unlock the Full Potential of LLMs: Ditch JSON for DSLs!</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/unlock-the-full-potential-of-llms-ditch-json-for-dsls/</link>
+      <pubDate>Tue, 24 Sep 2024 19:56:55 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/unlock-the-full-potential-of-llms-ditch-json-for-dsls/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re not leveraging DSLs with your LLMs, you might be missing out on significant performance and power. LLMs excel at understanding linguistic cues, making them the perfect match for English-like DSLs. Abandoning JSON tokens, which lack literary significance, and leaning into DSLs, can enhance your LLM&amp;rsquo;s performance.&lt;/p&gt;
+&lt;p&gt;Do the current generation of LLMs handle JSON encoding? Of course, at the cost of extra tokens! If you are using smaller models you may find yourself having to fine tune the model on your output format or using tools that restrict the grammar of the output. But if you intelligently adapt a DSL you can get even reliable output even from vanilla 4B parameter models.&lt;/p&gt;</description>
+      <content>&lt;p&gt;If you&amp;rsquo;re not leveraging DSLs with your LLMs, you might be missing out on significant performance and power. LLMs excel at understanding linguistic cues, making them the perfect match for English-like DSLs. Abandoning JSON tokens, which lack literary significance, and leaning into DSLs, can enhance your LLM&amp;rsquo;s performance.&lt;/p&gt;
+&lt;p&gt;Do the current generation of LLMs handle JSON encoding? Of course, at the cost of extra tokens! If you are using smaller models you may find yourself having to fine tune the model on your output format or using tools that restrict the grammar of the output. But if you intelligently adapt a DSL you can get even reliable output even from vanilla 4B parameter models.&lt;/p&gt;
+&lt;p&gt;Worried about writing a parser for your DSL to JSON? Ask Claude or ChatGPT, this is the type of make-work task that those larger models are great at!&lt;/p&gt;
+&lt;p&gt;Now, in practice, what does this look like?&lt;/p&gt;
+&lt;p&gt;Some of you know I&amp;rsquo;ve been working on (affordably, quickly!) simulating a small town with tiny locally ran LLMs. Here is a comparison of what the JSON for ChatGPT 4o looks like vs a tiny portion of a DSL that a 4b parameter model can reliably generate after only a handful of examples are fed to it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JSON&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timeOfDay&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;08:00&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dayNumber&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;characters&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;BLACKSMITH&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;fromLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;BLACKSMITH_HOUSE&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;toLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;BLACKSMITH_FORGE&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dialogue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time to get to work&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;INNKEEPER&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;fromLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INN&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;toLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INN&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dialogue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Come and get breakfast.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;DSL&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time: 08:00 // 24 hour
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;day: 2 // day number
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Blacksmith
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at: Blacksmith House
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;going: Blacksmith Forge
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dialogue: Time to get to work.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Innkeeper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at: Inn
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;going: Inn
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dialogue: Come and get breakfast.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For just the small snippet above there is a 1/3rd reduction in tokens, a ratio which carries over to the full schema vs. DSL. The difference in input tokens becomes important when doing few shot learning in a system prompt with a small context window, and the difference in output tokens is very important when running LLMs on the edge (phones, user GPUs).&lt;/p&gt;
+&lt;p&gt;The DSL above is trivial, it is just some fields separated by newlines! But being willing to step away from JSON makes the LLM happier, results in faster output generation, and simplifies the tooling needed to get reliable outputs. Now I&amp;rsquo;m still enforcing a CFG on the outputs, but leaning into the language part of Large Language Model enabled reliable output from a 4b parameter (8bit quantized!) model.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Using OpenAI Tool Call Helpers in Typescript</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/using-openai-tool-call-helpers-in-typescript/</link>
+      <pubDate>Thu, 05 Sep 2024 06:42:07 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/using-openai-tool-call-helpers-in-typescript/</guid>
+      <description>&lt;p&gt;The documentation for how to use the new beta tool call helpers API is pretty lackluster, so here is a very brief example.&lt;/p&gt;
+&lt;p&gt;Overview and Assumptions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I tend to store all my tools+prompts in a separate file, while some of my tool handlers are private class methods that I cannot just import and assign when defining my tools. To work around this, I create functions that take in the tool and assign it to the &lt;code&gt;function&lt;/code&gt; field of the tool. (Update: Now with full type safety!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I know that type inference can in theory do this, but it is &lt;em&gt;much&lt;/em&gt; easier to have errors at the place of declaration of the variable, rather than have them at the call site that takes the variable in. This is especially true with how these runnable functions are typed in TS, I ran into a 30 minute &amp;ldquo;what is happening&amp;rdquo; debugging session when the TS compiler gave me an absolutely horrible error&lt;/p&gt;
+&lt;p&gt;message when I was passing in an array of multiple tools to &lt;a href=&#34;http://openai.beta.chat&#34;&gt;&lt;code&gt;openai.beta.chat&lt;/code&gt;&lt;/a&gt;&lt;code&gt;.completions.runTools&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+      <content>&lt;p&gt;The documentation for how to use the new beta tool call helpers API is pretty lackluster, so here is a very brief example.&lt;/p&gt;
+&lt;p&gt;Overview and Assumptions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I tend to store all my tools+prompts in a separate file, while some of my tool handlers are private class methods that I cannot just import and assign when defining my tools. To work around this, I create functions that take in the tool and assign it to the &lt;code&gt;function&lt;/code&gt; field of the tool. (Update: Now with full type safety!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I know that type inference can in theory do this, but it is &lt;em&gt;much&lt;/em&gt; easier to have errors at the place of declaration of the variable, rather than have them at the call site that takes the variable in. This is especially true with how these runnable functions are typed in TS, I ran into a 30 minute &amp;ldquo;what is happening&amp;rdquo; debugging session when the TS compiler gave me an absolutely horrible error&lt;/p&gt;
+&lt;p&gt;message when I was passing in an array of multiple tools to &lt;a href=&#34;http://openai.beta.chat&#34;&gt;&lt;code&gt;openai.beta.chat&lt;/code&gt;&lt;/a&gt;&lt;code&gt;.completions.runTools&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// businessLogic.ts
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ToolCb&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;cbNumberParam&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;number&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;cbStringParam&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;}) &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// tools.ts
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;RunnableToolFunctionWithParse&lt;/span&gt; } &lt;span style=&#34;color:#66d9ef&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;openai/lib/RunnableFunction&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;ToolCb&lt;/span&gt; } &lt;span style=&#34;color:#66d9ef&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./businessLogic&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;createMyFancyTool&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionCallback&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;ToolCb&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;RunnableToolFunctionWithParse&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;Parameters&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;ToolCb&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;]&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;function&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;// if you don&amp;#39;t declare as RunnableToolFunctionWithParse up above you&amp;#39;ll need to write &amp;#39;function&amp;#39; as &amp;#39;function&amp;#39; here!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;functionCallback&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;parse&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;JSON.parse&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;My fancy tool&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;// naming tools is actually really important for getting ChatGPT to accurately call them!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A fancy tool you should call when needed&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;// descriptions are also super important and should be considered part of prompt engineering
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;parameters&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;object&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#a6e22e&#34;&gt;cbNumberParam&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;number&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#a6e22e&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the numeric data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#a6e22e&#34;&gt;cbStringParam&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#a6e22e&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the string data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#a6e22e&#34;&gt;required&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cbNumberParam&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cbStringParam&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Astute readers will notice that this is only 2 fields different than what the regular tool definition is. As mentioned above, I ran into an issue where after I added the function and parse fields, I got some really gnarly errors, which where the result of me not having written &lt;code&gt;type: &#39;function&#39; as &#39;function&#39;&lt;/code&gt; which you&amp;rsquo;ll likely need to do if you don&amp;rsquo;t explicitly type everything. OpenAI&amp;rsquo;s example code neglects this. However after fully typing everything, I no longer needed to cast the string.&lt;/p&gt;
+&lt;p&gt;Finally, if you don&amp;rsquo;t like using the parameters built in, you can create a separate type for the arguments and use that directly.&lt;/p&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>A NodeJS Developer Learning Flask - OR - Why Are The Easy Things Hard Now? :: Generative Storytelling</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="So I decided to learn Python again. The last time I seriously dove into Python it wasn&#39;t even at version 3 yet, so it has been a while.
+I am a big believer that the best way to learn a language is to make something you are passionate about in the lan..." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://www.generativestorytelling.ai/blog/posts/a-nodejs-developer-learning-flask-or-why-are-the-easy-things-hard-now/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/fonts.min.83987ef1dff9ed4bcea3a7aeb468e320d6c52b10b2f1e24a97db84b11823eb4b.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/header.min.e1a31de218efc063f51b07c95cb421b44b8f7cedb8ec6d019955afca30076dcc.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/main.min.c9a154dd011cdb968b906d472af3159f71235bf210c2db7fe94ef8b420462614.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terminal.min.2b2194fecc05dff0c1ba2e57d28d86e20a1d8b3c068aca336140c1e13167d22a.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+<link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/style.css">
+
+
+<link rel="shortcut icon" href="https://www.generativestorytelling.ai/blog/favicon.png">
+<link rel="apple-touch-icon" href="https://www.generativestorytelling.ai/blog/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="Devlin Bentley" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="A NodeJS Developer Learning Flask - OR - Why Are The Easy Things Hard Now?">
+<meta property="og:description" content="So I decided to learn Python again. The last time I seriously dove into Python it wasn&#39;t even at version 3 yet, so it has been a while.
+I am a big believer that the best way to learn a language is to make something you are passionate about in the lan..." />
+<meta property="og:url" content="https://www.generativestorytelling.ai/blog/posts/a-nodejs-developer-learning-flask-or-why-are-the-easy-things-hard-now/" />
+<meta property="og:site_name" content="Generative Storytelling" />
+
+  <meta property="og:image" content="https://www.generativestorytelling.ai/blog/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-10-18 07:00:09 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/blog/">
+  <div class="logo">
+    Generative Storytelling
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://www.generativestorytelling.ai/blog/posts/a-nodejs-developer-learning-flask-or-why-are-the-easy-things-hard-now/">A NodeJS Developer Learning Flask - OR - Why Are The Easy Things Hard Now?</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-10-18</time><span class="post-author">Devlin Bentley</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/flask-framework/">Flask Framework</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/node.js/">Node.js</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/python/">Python</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/javascript/">JavaScript</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>So I decided to learn Python again. The last time I seriously dove into Python it wasn&rsquo;t even at version 3 yet, so it has been a while.</p>
+<p>I am a big believer that the best way to learn a language is to make something you are passionate about in the language, so I am making another cool LLM thing, this time a town simulator.</p>
+<p>The tl;dr is that a fantasy town is being simulated with town residents but also an adventurer who goes off and does things, and visitors to the site can vote on what the adventurer does next by way of a poll on the homepage.</p>
+<h2 id="getting-started">Getting Started<a href="#getting-started" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Writing a REST API service in NodeJS is simple because that is the one thing Node is <em>really</em> good at. For anyone reading this who isn&rsquo;t familiar, a full NodeJS service with CORs looks like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;express&#39;</span>; <span style="color:#75715e">// Webserver
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Router</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;express&#39;</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">healthcheck</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./routes/healthcheck&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">corsOptions</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">origin</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://www.generativestorytelling.ai/&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#e6db74">&#39;POST&#39;</span>, <span style="color:#e6db74">&#39;OPTIONS&#39;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">allowedHeaders</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;Accept&#39;</span>, <span style="color:#e6db74">&#39;Authorization&#39;</span>],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">cors</span>(<span style="color:#a6e22e">corsOptions</span>)); <span style="color:#75715e">// enable cors
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">json</span>());  <span style="color:#75715e">// Automatically de/serialize from/to JSON
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span>: <span style="color:#66d9ef">express.Express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#66d9ef">get</span>(<span style="color:#e6db74">&#39;/healthcheck&#39;</span>, <span style="color:#a6e22e">healthcheck</span>); <span style="color:#75715e">// Pass the function in that&#39;ll handle this endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">app</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>); <span style="color:#75715e">// Start up a web server on port 3000
+</span></span></span></code></pre></div><p>Two key things to notice here: the router takes in a function to handle the route, and this creates a full server, you are done, finished, that is it.</p>
+<p>Python+Flask doesn&rsquo;t do this.</p>
+<p>Disclaimer: The below is the result of about 1 week of playing around and I may be horribly wrong about some things.</p>
+<p>First off, if you define your route handler in the same file as your router, you can just pass in a function. However, if the handler is defined in a different file, you have to pass in a blueprint. I am not sure why it can&rsquo;t just take the function in.</p>
+<p>Second off, you have to use a separate server. Flask doesn&rsquo;t have a built-in server.</p>
+<p>Third: apparently most things in Flask are synchronous blocking calls (?!?), and that server you hook Flask up to handles creating threads/processes so you can scale.</p>
+<p>Again, for those unaware, a single NodeJS server running on the cheapest VPS you can find will easily obtain mid-100s of RPS. Put NodeJS on a not-horrible server and you can reach 1k RPS w/o too much worry, assuming you aren&rsquo;t shoving a compute bound load onto Node. (Please don&rsquo;t use NodeJS for any actual computations&hellip;)</p>
+<h2 id="creating-a-poll">Creating a Poll<a href="#creating-a-poll" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Now back to the poll feature.</p>
+<p>In NodeJS, this is <em>trivial</em>. So long as I only need 1 instance of Node running (and again, for up to ~300+ people hitting that poll per second I will be fine), I simply use a global counter and write the following code</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;express&#39;</span>; <span style="color:#75715e">// Webserver
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Router</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;express&#39;</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">healthcheck</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./routes/healthcheck&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pollOptions</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">option1</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">option2</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">option3</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">corsOptions</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">origin</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://www.generativestorytelling.ai/&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#e6db74">&#39;POST&#39;</span>, <span style="color:#e6db74">&#39;OPTIONS&#39;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">allowedHeaders</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;Accept&#39;</span>, <span style="color:#e6db74">&#39;Authorization&#39;</span>],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">cors</span>(<span style="color:#a6e22e">corsOptions</span>)); <span style="color:#75715e">// enable cors
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">json</span>());  <span style="color:#75715e">// Automatically de/serialize from/to JSON
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span>: <span style="color:#66d9ef">express.Express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/votePoll&#39;</span>, (<span style="color:#a6e22e">req</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vote</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">vote</span>)<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;option1&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">pollOptions</span>.<span style="color:#a6e22e">option1</span><span style="color:#f92672">++</span>; <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;option2&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">pollOptions</span>.<span style="color:#a6e22e">option2</span><span style="color:#f92672">++</span>; <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;option3&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">pollOptions</span>.<span style="color:#a6e22e">option3</span><span style="color:#f92672">++</span>; <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span> ); 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">app</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>); <span style="color:#75715e">// Start up a web server on port 3000
+</span></span></span></code></pre></div><p>Because Node is single threaded and single process, that is <em>completely safe code</em>. A request will come in, increment a poll option, and return.</p>
+<p>Done. Finished. Kaput. Ideally, I&rsquo;d write a timer so that every 60 seconds I&rsquo;d do a writethrough to an S3 bucket to preserve the value. That is literally <em>5</em> more lines of code.</p>
+<h3 id="what-about-in-pythonflask">What about in Python+Flask?<a href="#what-about-in-pythonflask" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>Because there are multiple threads+processes some sort of synchronization scheme is needed. This is going to have a (tiny I hope) performance overhead, and also result in a lot more code. I have yet to decide how I am going to do this feature, but I do know that I am unhappy that doing something so simple is going to be a lot more work. Researching solutions I have seen repeated suggestions to just run a local DB and save the value there. Which honestly&hellip; just hurts. Megabytes of code and another process running just to store 3 numbers. Absurd.</p>
+<p>And I&rsquo;m sure experienced users of Flask would be able to get such a thing setup in just a few minutes, but oh my word it seems like so much work for such a simple thing.</p>
+<h3 id="this-goes-back-to-microservice-first-thinking">This Goes Back to Microservice First Thinking<a href="#this-goes-back-to-microservice-first-thinking" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>People laugh at microservices, but if I really wanted to get a poll feature out right away and w/o worry, I&rsquo;d spend all of 15 minutes developing it in NodeJS, have next to no dependencies (aside from wherever I am writing through to as a cache), and for the vast majority of loads[1] it could run as a standalone service on an existing VPS for literally 0 extra cost. For you k8s folks, it&rsquo;d be a pod with 1 instance, assigned 0.1 CPU and 256MB of RAM (I&rsquo;ve run NodeJS services in production that never went above 140MB of RAM, it isn&rsquo;t hard!)</p>
+<p>But Flask isn&rsquo;t about that. Flask is about doing a <em>lot</em> of things, and I presume they figure you are likely to have a DB in there someplace, so not allowing (ab)use of global variables across requests is fine, just use the DB you already have! For the problem-solving style Flask developers are using, this is the correct mentality. If you look into it, Flask has a bunch of built-in support for serving up HTML files on routes, caching HTML files in memory, and doing other cool stuff that NodeJS <em>doesn&rsquo;t even want to do</em>. (Of course you can serve HTML files with Express, but it lacks Flask&rsquo;s niceties for doing such, and it really isn&rsquo;t something Express is meant to do w/o some extra libraries layered on top.)</p>
+<h2 id="final-first-week-impressions">Final First-Week Impressions<a href="#final-first-week-impressions" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>I&rsquo;d be done by now if I was writing this in NodeJS.</p>
+<p>The single-threaded single process async everywhere mentality is incredibly simplifying for large swaths of problems. Thus that <a href="https://hashnode.com/post/clfwuvlkx000509jv8izzedhf">entire embedded runtime</a> I helped build on those principles.</p>
+<p>Of course, if I had to scale out the NodeJS solution, I&rsquo;d end up with something resembling what Flask requires, but while I&rsquo;ll admit that, I also believe that simple things should be simple, and hard things should be possible. Flask is making this simple thing difficult, while seemingly focused on making the hard things less hard.</p>
+<p>It is a trade-off that we see all the time in software engineering, and it can be argued that any sufficiently complex framework or tool eventually grows to this point. From Jira (or any other task management system) to languages like Rust[2] and C++.</p>
+<p>IMHO the NodeJS ecosystem has remained laser-focused on simplicity. People complain that the JS ecosystem itself iterates too quickly (arguable, sometimes true, there is no way I&rsquo;m trying to bring up frontend code from more than 2 or 3 years ago&hellip;), but the backend JS ecosystem hasn&rsquo;t changed much over the years and that is a good thing.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/only-300-software-engineers-were-needed-to-launch-hbo-max/" class="button inline prev">
+        Only 300 software engineers were needed to launch HBO Max
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/" class="button inline next">
+        Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/blog/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

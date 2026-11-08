@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist :: Generative Storytelling</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A few months back I released Arcadia, a demonstration project of how multiple generative technologies can be brought together. While I could write plenty about the project here, the GitHub repo includes a lot of details already and I suggest heading ..." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/fonts.min.83987ef1dff9ed4bcea3a7aeb468e320d6c52b10b2f1e24a97db84b11823eb4b.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/header.min.e1a31de218efc063f51b07c95cb421b44b8f7cedb8ec6d019955afca30076dcc.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/main.min.c9a154dd011cdb968b906d472af3159f71235bf210c2db7fe94ef8b420462614.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terminal.min.2b2194fecc05dff0c1ba2e57d28d86e20a1d8b3c068aca336140c1e13167d22a.css">
+
+  
+  <link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+<link rel="stylesheet" href="https://www.generativestorytelling.ai/blog/style.css">
+
+
+<link rel="shortcut icon" href="https://www.generativestorytelling.ai/blog/favicon.png">
+<link rel="apple-touch-icon" href="https://www.generativestorytelling.ai/blog/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="Devlin Bentley" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist">
+<meta property="og:description" content="A few months back I released Arcadia, a demonstration project of how multiple generative technologies can be brought together. While I could write plenty about the project here, the GitHub repo includes a lot of details already and I suggest heading ..." />
+<meta property="og:url" content="https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/" />
+<meta property="og:site_name" content="Generative Storytelling" />
+
+  
+  
+    
+  
+  <meta property="og:image" content="https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/cover.jpeg">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-10-12 01:58:43 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/blog/">
+  <div class="logo">
+    Generative Storytelling
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/">Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-10-12</time><span class="post-author">Devlin Bentley</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/generative-ai/">generative ai</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/dall-e2/">Dall-e2</a>&nbsp;
+      
+      #<a href="https://www.generativestorytelling.ai/blog/tags/chatgpt/">chatgpt</a>&nbsp;
+      
+    </span>
+  
+  
+  <img src="/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/cover.jpeg"
+    class="post-cover"
+    alt="Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <p>A few months back I released <a href="https://www.generativestorytelling.ai">Arcadia</a>, a demonstration project of how multiple generative technologies can be brought together. While I could write plenty about the project here, the <a href="https://github.com/devlinb/arcadia">GitHub repo</a> includes a lot of details already and I suggest heading over there if you want to know more about how it works.</p>
+<p>What I do want to talk about here is how image generation AIs allowed a 1.5-person team (1 developer, 1 part-time designer) to add more diverse representation to the project.</p>
+<p>It&rsquo;s well-known that viewers connect more deeply with characters in media that mirror their own identities. This includes not just cultural components but also visual representation. Think back to the 90s and early 2000s: while many enjoyed watching Arnold Schwarzenegger in action films, American Geeks felt more of a connection with Keanu Reeves in The Matrix. His character&rsquo;s cultural and physical likeness was more relatable.</p>
+<p>What I am getting at is this: it is important that people see characters who resemble themselves in media.</p>
+<p>This is one of those areas where generative AI can help.</p>
+<p>I was ready to launch Arcadia when I recalled a <a href="https://www.youtube.com/watch?v=uK3NivtVyeE">YouTube video I had watched</a> on the topic of representation in video games, and I decided I could do better than launching with only generic AI-generated pictures of white people! I could launch with generic AI-generated pictures of multiple races!</p>
+<h2 id="the-initial-plan">The Initial Plan<a href="#the-initial-plan" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Arcadia&rsquo;s style is a mixture of early 2000s skeuomorphic web design, cliche medieval stuff, and Renaissance oil paintings. I already had the prompts that generated all my existing Caucasian [1] character portraits, so I figured I&rsquo;d just change the line &ldquo;Caucasian&rdquo; to some other ethnic group.</p>
+<p>I&rsquo;d then write a little UI in C# that&rsquo;d hit up the DALLE 2 endpoints and give me back 6 results, I&rsquo;d choose one for each role in the story, and I&rsquo;d be done.</p>
+<p>No problem, easy peasy.</p>
+<h2 id="what-actually-happened">What Actually Happened<a href="#what-actually-happened" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Racism. Lots of racism.</p>
+<p>I have not tested this recently, but back in July of 2023, when I asked DALLE 2 to generate a &ldquo;Handsom Caucasian Prince in Medieval Court Garb in the style of a Renaissance oil painting&rdquo; I got back a fairly nice-looking young man.</p>
+<p>If I replaced that with &ldquo;Beautiful Moorish Prince&hellip;&rdquo; well on occasion I&rsquo;d get back images that had all the worst racist attributes you can imagine, including large red lips and an overgrown forehead.</p>
+<p>Every single image DALLE generated that I wasn&rsquo;t described as &ldquo;Caucasian&rdquo; came back mangled in some way. Sometimes horribly, sometimes &ldquo;just&rdquo; with distorted facial features. I had to do in-painting on every single image, which involved selecting the face, asking it to generate &ldquo;the face of a handsome young {Moorish, Asian, Black, Persian} man&rdquo; replacing whatever disaster DALLE 2 had created the first time around.</p>
+<p>Oh DALLE 2 also at that time (and may still today) had a bug where it would cut the top part of heads off, so I had to spend more credits expanding the canvas.</p>
+<h1 id="what-about-dreamstudio">What About DreamStudio?<a href="#what-about-dreamstudio" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>Dream Studio, back then at least, was unable to do really good Renaissance oil paintings. I did end up using a few Dream Studio portraits, but stylistically they don&rsquo;t fit in well. Dream Studio did however seem to be a lot less racist.</p>
+<h1 id="example-image-before-inpainting">Example Image Before Inpainting<a href="#example-image-before-inpainting" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><img src="/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/image-cbb741905397.png" alt=""></p>
+<p>I&rsquo;m not going to try and claim my attempts at inpainting always worked, the black faces in particular still look off for a lot of the final images, but they are worlds better than the hot mess shown above.</p>
+<p>After inpainting, I ended up with results like this</p>
+<p><img src="/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/image-ca9a3cce0f3a.png" alt=""></p>
+<h2 id="theories-as-to-why">Theories As to Why<a href="#theories-as-to-why" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>My honest guess is a lack of diversity in the training data. There are less paintings of black men and women, and a lot less paintings of black men and women dressed up on their way to a royal court.</p>
+<p>The Asian faces generated by DALLE tended to not be so bad, they needed some fixing now and then but they were rarely horribly wrong, and again I&rsquo;d guess that is a result of training data.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/a-nodejs-developer-learning-flask-or-why-are-the-easy-things-hard-now/" class="button inline prev">
+        A NodeJS Developer Learning Flask - OR - Why Are The Easy Things Hard Now?
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://www.generativestorytelling.ai/blog/posts/you-probably-dont-need-server-side-rendering/" class="button inline next">
+        You (Probably) Don&#39;t Need Server Side Rendering
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/blog/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

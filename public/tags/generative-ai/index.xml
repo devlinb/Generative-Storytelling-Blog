@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Generative Ai on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/generative-ai/</link>
+    <description>Recent content in Generative Ai on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Thu, 12 Oct 2023 01:58:43 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/generative-ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Generative AI To Increase Representation in Games, and BTW AIs are Still Racist</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/</link>
+      <pubDate>Thu, 12 Oct 2023 01:58:43 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/</guid>
+      <description>&lt;p&gt;A few months back I released &lt;a href=&#34;https://www.generativestorytelling.ai&#34;&gt;Arcadia&lt;/a&gt;, a demonstration project of how multiple generative technologies can be brought together. While I could write plenty about the project here, the &lt;a href=&#34;https://github.com/devlinb/arcadia&#34;&gt;GitHub repo&lt;/a&gt; includes a lot of details already and I suggest heading over there if you want to know more about how it works.&lt;/p&gt;
+&lt;p&gt;What I do want to talk about here is how image generation AIs allowed a 1.5-person team (1 developer, 1 part-time designer) to add more diverse representation to the project.&lt;/p&gt;</description>
+      <content>&lt;p&gt;A few months back I released &lt;a href=&#34;https://www.generativestorytelling.ai&#34;&gt;Arcadia&lt;/a&gt;, a demonstration project of how multiple generative technologies can be brought together. While I could write plenty about the project here, the &lt;a href=&#34;https://github.com/devlinb/arcadia&#34;&gt;GitHub repo&lt;/a&gt; includes a lot of details already and I suggest heading over there if you want to know more about how it works.&lt;/p&gt;
+&lt;p&gt;What I do want to talk about here is how image generation AIs allowed a 1.5-person team (1 developer, 1 part-time designer) to add more diverse representation to the project.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s well-known that viewers connect more deeply with characters in media that mirror their own identities. This includes not just cultural components but also visual representation. Think back to the 90s and early 2000s: while many enjoyed watching Arnold Schwarzenegger in action films, American Geeks felt more of a connection with Keanu Reeves in The Matrix. His character&amp;rsquo;s cultural and physical likeness was more relatable.&lt;/p&gt;
+&lt;p&gt;What I am getting at is this: it is important that people see characters who resemble themselves in media.&lt;/p&gt;
+&lt;p&gt;This is one of those areas where generative AI can help.&lt;/p&gt;
+&lt;p&gt;I was ready to launch Arcadia when I recalled a &lt;a href=&#34;https://www.youtube.com/watch?v=uK3NivtVyeE&#34;&gt;YouTube video I had watched&lt;/a&gt; on the topic of representation in video games, and I decided I could do better than launching with only generic AI-generated pictures of white people! I could launch with generic AI-generated pictures of multiple races!&lt;/p&gt;
+&lt;h2 id=&#34;the-initial-plan&#34;&gt;The Initial Plan&lt;/h2&gt;
+&lt;p&gt;Arcadia&amp;rsquo;s style is a mixture of early 2000s skeuomorphic web design, cliche medieval stuff, and Renaissance oil paintings. I already had the prompts that generated all my existing Caucasian [1] character portraits, so I figured I&amp;rsquo;d just change the line &amp;ldquo;Caucasian&amp;rdquo; to some other ethnic group.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;d then write a little UI in C# that&amp;rsquo;d hit up the DALLE 2 endpoints and give me back 6 results, I&amp;rsquo;d choose one for each role in the story, and I&amp;rsquo;d be done.&lt;/p&gt;
+&lt;p&gt;No problem, easy peasy.&lt;/p&gt;
+&lt;h2 id=&#34;what-actually-happened&#34;&gt;What Actually Happened&lt;/h2&gt;
+&lt;p&gt;Racism. Lots of racism.&lt;/p&gt;
+&lt;p&gt;I have not tested this recently, but back in July of 2023, when I asked DALLE 2 to generate a &amp;ldquo;Handsom Caucasian Prince in Medieval Court Garb in the style of a Renaissance oil painting&amp;rdquo; I got back a fairly nice-looking young man.&lt;/p&gt;
+&lt;p&gt;If I replaced that with &amp;ldquo;Beautiful Moorish Prince&amp;hellip;&amp;rdquo; well on occasion I&amp;rsquo;d get back images that had all the worst racist attributes you can imagine, including large red lips and an overgrown forehead.&lt;/p&gt;
+&lt;p&gt;Every single image DALLE generated that I wasn&amp;rsquo;t described as &amp;ldquo;Caucasian&amp;rdquo; came back mangled in some way. Sometimes horribly, sometimes &amp;ldquo;just&amp;rdquo; with distorted facial features. I had to do in-painting on every single image, which involved selecting the face, asking it to generate &amp;ldquo;the face of a handsome young {Moorish, Asian, Black, Persian} man&amp;rdquo; replacing whatever disaster DALLE 2 had created the first time around.&lt;/p&gt;
+&lt;p&gt;Oh DALLE 2 also at that time (and may still today) had a bug where it would cut the top part of heads off, so I had to spend more credits expanding the canvas.&lt;/p&gt;
+&lt;h1 id=&#34;what-about-dreamstudio&#34;&gt;What About DreamStudio?&lt;/h1&gt;
+&lt;p&gt;Dream Studio, back then at least, was unable to do really good Renaissance oil paintings. I did end up using a few Dream Studio portraits, but stylistically they don&amp;rsquo;t fit in well. Dream Studio did however seem to be a lot less racist.&lt;/p&gt;
+&lt;h1 id=&#34;example-image-before-inpainting&#34;&gt;Example Image Before Inpainting&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/image-cbb741905397.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not going to try and claim my attempts at inpainting always worked, the black faces in particular still look off for a lot of the final images, but they are worlds better than the hot mess shown above.&lt;/p&gt;
+&lt;p&gt;After inpainting, I ended up with results like this&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/image-ca9a3cce0f3a.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;theories-as-to-why&#34;&gt;Theories As to Why&lt;/h2&gt;
+&lt;p&gt;My honest guess is a lack of diversity in the training data. There are less paintings of black men and women, and a lot less paintings of black men and women dressed up on their way to a royal court.&lt;/p&gt;
+&lt;p&gt;The Asian faces generated by DALLE tended to not be so bad, they needed some fixing now and then but they were rarely horribly wrong, and again I&amp;rsquo;d guess that is a result of training data.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

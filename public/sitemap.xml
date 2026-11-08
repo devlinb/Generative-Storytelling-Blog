@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.generativestorytelling.ai/blog/tags/band/</loc>
-    <lastmod>2026-07-06T13:43:35-07:00</lastmod>
-  </url><url>
     <loc>https://www.generativestorytelling.ai/blog/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/mcgraw-day-program/mcgraw/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/school/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/therapy/</loc>
+    <lastmod>2026-11-06T21:15:47-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/band/</loc>
     <lastmod>2026-07-06T13:43:35-07:00</lastmod>
   </url><url>
     <loc>https://www.generativestorytelling.ai/blog/tags/history/</loc>
@@ -18,12 +33,6 @@
     <lastmod>2026-07-06T13:43:35-07:00</lastmod>
   </url><url>
     <loc>https://www.generativestorytelling.ai/blog/tags/microsoft-kin/</loc>
-    <lastmod>2026-07-06T13:43:35-07:00</lastmod>
-  </url><url>
-    <loc>https://www.generativestorytelling.ai/blog/posts/</loc>
-    <lastmod>2026-07-06T13:43:35-07:00</lastmod>
-  </url><url>
-    <loc>https://www.generativestorytelling.ai/blog/tags/</loc>
     <lastmod>2026-07-06T13:43:35-07:00</lastmod>
   </url><url>
     <loc>https://www.generativestorytelling.ai/blog/tags/adhd/</loc>
@@ -47,6 +56,15 @@
     <loc>https://www.generativestorytelling.ai/blog/tags/workplace/</loc>
     <lastmod>2026-04-15T15:30:00-07:00</lastmod>
   </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/lets-do-some-actual-innovative-sht/</loc>
+    <lastmod>2025-04-29T05:06:38+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/rag/</loc>
+    <lastmod>2025-04-29T05:06:38+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/smart-home/</loc>
+    <lastmod>2025-04-29T05:06:38+00:00</lastmod>
+  </url><url>
     <loc>https://www.generativestorytelling.ai/blog/tags/test-post/</loc>
     <lastmod>2025-01-13T23:37:42-08:00</lastmod>
   </url><url>
@@ -58,6 +76,162 @@
   </url><url>
     <loc>https://www.generativestorytelling.ai/blog/posts/my-first-post/</loc>
     <lastmod>2025-01-11T23:37:42-08:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/game-development/</loc>
+    <lastmod>2024-12-04T00:40:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/introducing-tinytownai/</loc>
+    <lastmod>2024-12-04T00:40:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/video-games/</loc>
+    <lastmod>2024-12-04T00:40:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/embedded/</loc>
+    <lastmod>2025-08-14T06:42:48+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/microsoft-band/</loc>
+    <lastmod>2025-08-14T06:42:48+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/pub-sub/</loc>
+    <lastmod>2024-10-28T19:59:53+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/subscriptions-on-the-microsoft-band/</loc>
+    <lastmod>2024-10-28T19:59:53+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/dsl/</loc>
+    <lastmod>2024-09-24T19:56:55+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/unlock-the-full-potential-of-llms-ditch-json-for-dsls/</loc>
+    <lastmod>2024-09-24T19:56:55+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/openai/</loc>
+    <lastmod>2024-09-06T20:37:13+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/typescript/</loc>
+    <lastmod>2024-09-06T20:37:13+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/using-openai-tool-call-helpers-in-typescript/</loc>
+    <lastmod>2024-09-06T20:37:13+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/hbomax/</loc>
+    <lastmod>2024-01-11T22:18:23+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/only-300-software-engineers-were-needed-to-launch-hbo-max/</loc>
+    <lastmod>2024-01-11T22:18:23+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/video-streaming/</loc>
+    <lastmod>2024-01-11T22:18:23+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/a-nodejs-developer-learning-flask-or-why-are-the-easy-things-hard-now/</loc>
+    <lastmod>2023-10-18T15:33:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/flask-framework/</loc>
+    <lastmod>2023-10-18T15:33:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/javascript/</loc>
+    <lastmod>2023-10-18T15:33:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/node.js/</loc>
+    <lastmod>2023-10-18T15:33:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/python/</loc>
+    <lastmod>2023-10-18T15:33:12+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/chatgpt/</loc>
+    <lastmod>2023-10-12T02:05:46+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/dall-e2/</loc>
+    <lastmod>2023-10-12T02:05:46+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/generative-ai/</loc>
+    <lastmod>2023-10-12T02:05:46+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/using-generative-ai-to-increase-representation-in-games-and-btw-ais-are-still-racist/</loc>
+    <lastmod>2023-10-12T02:05:46+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/next.js/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/nuxt/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/server-side-rendering/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/ssg/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/ssr/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/you-probably-dont-need-server-side-rendering/</loc>
+    <lastmod>2023-07-11T20:52:19+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/</loc>
+    <lastmod>2025-08-14T06:42:48+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/multitasking/</loc>
+    <lastmod>2025-08-14T06:42:48+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/wearable-technology/</loc>
+    <lastmod>2025-08-14T06:42:48+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-2/</loc>
+    <lastmod>2023-01-26T05:34:26+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/joule/</loc>
+    <lastmod>2023-01-26T05:34:26+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/</loc>
+    <lastmod>2023-01-14T07:18:38+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/arm/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/c&#43;&#43;/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/compiler/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/compilers/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/how-microsoft-tested-compilers-circa-2006/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/mcu/</loc>
+    <lastmod>2022-12-28T17:50:30+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/functional-programming/</loc>
+    <lastmod>2022-12-22T06:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/object-oriented-programming/</loc>
+    <lastmod>2022-12-22T06:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/programming-paradigms-limit-what-you-can-do-and-that-is-a-good-thing/</loc>
+    <lastmod>2022-12-22T06:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/software-architecture/</loc>
+    <lastmod>2022-12-22T06:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/software-engineering/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/backend/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/microservices/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/programming-blogs/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/tags/software-development/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
+  </url><url>
+    <loc>https://www.generativestorytelling.ai/blog/posts/some-unique-defenses-of-microservices/</loc>
+    <lastmod>2022-12-22T23:27:45+00:00</lastmod>
   </url><url>
     <loc>https://www.generativestorytelling.ai/blog/categories/</loc>
   </url>

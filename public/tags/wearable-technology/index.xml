@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wearable Technology on Generative Storytelling</title>
+    <link>https://www.generativestorytelling.ai/blog/tags/wearable-technology/</link>
+    <description>Recent content in Wearable Technology on Generative Storytelling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>devlin.bentley@gmail.com (Devlin)</managingEditor>
+    <webMaster>devlin.bentley@gmail.com (Devlin)</webMaster>
+    <lastBuildDate>Fri, 31 Mar 2023 18:06:01 +0000</lastBuildDate><atom:link href="https://www.generativestorytelling.ai/blog/tags/wearable-technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cooperative Multitasking on Microsoft Band</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/</link>
+      <pubDate>Fri, 31 Mar 2023 18:06:01 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/cooperative-multitasking-on-microsoft-band/</guid>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;tl;dr&lt;/h1&gt;
+&lt;p&gt;This is going to be a &lt;em&gt;very&lt;/em&gt; technical post, if you are not familiar with different concurrency models and subscription (pub/sub) systems, then I&amp;rsquo;ll be throwing a lot of new knowledge your way. To make suffering through more enticing, I&amp;rsquo;m going to summarize how we did things first, then dive into details.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Band used &lt;a href=&#34;https://en.wikipedia.org/wiki/Cooperative_multitasking&#34;&gt;Cooperative multitasking&lt;/a&gt; along with an async, (mostly) lock free IO model. No kernel forcing threads to switch contexts, and no waiting on locks. This dramatically reduces overhead.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The single primitive of concurrency was Asynchronous Procedure Calls, basically a function that you can schedule to run at a later time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statically allocated equivalent of closures, no capture, any state that a module needed was statically allocated at compile time, and passed through callbacks. Frequently modules made their callers allocate storage for the module&amp;rsquo;s state, which is downright magical.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;100% Async IO with callbacks on completion&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Microcontroller Unit (a &lt;a href=&#34;https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/k-series-arm-cortex-m4/k2x-ks2x-usb/kinetis-k24-120-mhz-full-speed-usb-256kb-sram-microcontrollers-mcus-based-on-arm-cortex-m4-core:K24_120&#34;&gt;K24&lt;/a&gt;) had a very powerful &lt;a href=&#34;https://en.wikipedia.org/wiki/Direct_memory_access#Third-party&#34;&gt;DMA engine&lt;/a&gt; that was used to offload the majority of IO&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The CPU slept in an ultra low power state over 96% of the time, except when the screen was on and almost all UI elements were were changing every frame, then it was only asleep ~70% of the time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+      <content>&lt;h1 id=&#34;tldr&#34;&gt;tl;dr&lt;/h1&gt;
+&lt;p&gt;This is going to be a &lt;em&gt;very&lt;/em&gt; technical post, if you are not familiar with different concurrency models and subscription (pub/sub) systems, then I&amp;rsquo;ll be throwing a lot of new knowledge your way. To make suffering through more enticing, I&amp;rsquo;m going to summarize how we did things first, then dive into details.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Band used &lt;a href=&#34;https://en.wikipedia.org/wiki/Cooperative_multitasking&#34;&gt;Cooperative multitasking&lt;/a&gt; along with an async, (mostly) lock free IO model. No kernel forcing threads to switch contexts, and no waiting on locks. This dramatically reduces overhead.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The single primitive of concurrency was Asynchronous Procedure Calls, basically a function that you can schedule to run at a later time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statically allocated equivalent of closures, no capture, any state that a module needed was statically allocated at compile time, and passed through callbacks. Frequently modules made their callers allocate storage for the module&amp;rsquo;s state, which is downright magical.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;100% Async IO with callbacks on completion&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Microcontroller Unit (a &lt;a href=&#34;https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/k-series-arm-cortex-m4/k2x-ks2x-usb/kinetis-k24-120-mhz-full-speed-usb-256kb-sram-microcontrollers-mcus-based-on-arm-cortex-m4-core:K24_120&#34;&gt;K24&lt;/a&gt;) had a very powerful &lt;a href=&#34;https://en.wikipedia.org/wiki/Direct_memory_access#Third-party&#34;&gt;DMA engine&lt;/a&gt; that was used to offload the majority of IO&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The CPU slept in an ultra low power state over 96% of the time, except when the screen was on and almost all UI elements were were changing every frame, then it was only asleep ~70% of the time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;intro-to-microsoft-band&#34;&gt;Intro To Microsoft Band&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Microsoft_Band_2&#34;&gt;Microsoft Band 2&lt;/a&gt; was a wearable smart watch that had a 90mhz CPU (downclocked from 120mhz to save power), 256KB of SRAM, 4MB of external SRAM, and a &lt;em&gt;lot&lt;/em&gt; of sensors that needed to be read from, some of which had soft real time requirements.&lt;/p&gt;
+&lt;p&gt;With only 1MB of flash to store the all executable, code, and one of the world&amp;rsquo;s first tiny curved batteries, power and space was at a premium.&lt;/p&gt;
+&lt;p&gt;(I&amp;rsquo;ll mix up Band 1 and 2 freely, at a block diagram level you can treat them as being siblings, Band 2 was an iteration on Band 1).&lt;/p&gt;
+&lt;p&gt;Not only was Band powering a lot of sensors, but the UI team was pushing the hardware to its limits: full anti-aliased TrueType fonts, real alpha blending, VSync&amp;rsquo;d at 30FPS, and the touch controller had a worse case latency of 2 frames. At launch, the Microsoft Band dropped fewer frames than an Apple Watch ,while running at less than 1/10th the CPU power, without a dedicated GPU of any sort, and had a battery that could last for up to 3 days. (Fun fact: If a different accelerometer chip had been used, Band 2 would could have reached 5 days of battery life!)&lt;/p&gt;
+&lt;p&gt;The rest of this post will describe how modern asynchronous programming practices, written in C, without any heap allocations, were used to provide the impressive performance, and amazing battery life.&lt;/p&gt;
+&lt;h1 id=&#34;cooperative-multitasking&#34;&gt;Cooperative Multitasking&lt;/h1&gt;
+&lt;p&gt;(If you are familiar with how Node works, what we did will sound familiar, however as an embedded development team we were not familiar with Node and we ended up independently choosing many of the same software engineering patterns.)&lt;/p&gt;
+&lt;p&gt;There are two popular ways to handle concurrency, cooperative multitasking and preemptive multitasking. Preemptive systems also often, but not always, use a traditional threading model.&lt;/p&gt;
+&lt;p&gt;Everyone reading this is likely familiar with preemptive multithreading: Every few hundred microseconds whatever code is running is suspended, all its state is saved off, and another thread is loaded up and starts running. This all takes a little bit of time, and each thread has a bit of memory overhead, typically the size of the stack plus some book keeping. Because multiple pieces of code are running &amp;ldquo;at the same time&amp;rdquo;, it can result in race conditions when multiple threads try to access the same data of memory. &lt;a href=&#34;https://en.wikipedia.org/wiki/Spinlock#Alternatives&#34;&gt;Locks or some alternative&lt;/a&gt; are used to solve resource contention issues, but it is still easy to run into bugs.&lt;/p&gt;
+&lt;p&gt;Band does not have threads or preemption. Band does what many low power systems have historically done, and uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Cooperative_multitasking&#34;&gt;cooperative multitasking&lt;/a&gt;, more specifically Band has one thread of execution, and code uses cooperative multitasking on that one thread.&lt;/p&gt;
+&lt;p&gt;With cooperative multitasking, one function runs until it&amp;rsquo;s finished, then returns control to a dispatcher, which then starts running the next function. This avoids worrying about threads, and it side steps race conditions. Everything is controlled by a single loop that keeps track of what function is in line to run next.&lt;/p&gt;
+&lt;p&gt;The large downside to cooperative multitasking is if a function gets stuck in an infinite loop, the entire system will become unresponsive because that function never returns control to the dispatcher. Similarly, if one function takes too long to run the entire system will appear laggy and unresponsive.&lt;/p&gt;
+&lt;p&gt;Because all code on Band was written in house, we didn&amp;rsquo;t have these particular worries. During internal testing we used a &lt;a href=&#34;https://en.wikipedia.org/wiki/Watchdog_timer&#34;&gt;watchdog timer&lt;/a&gt; set to 20ms for the UI, and ~2ms for everyone else, if any module took more than 2ms before it returned, a crash dump was created and the code was investigated and optimized.&lt;/p&gt;
+&lt;p&gt;Used carefully, cooperative multitasking can be a significant savings on CPU and memory vs using threads, and it boasts a simpler mental model that avoids worrying about data races; all in all it was a perfect fit for Band. After we threw in some Async IO and a pub/sub system (deep dive on Band&amp;rsquo;s pub/sub in a future blog post!) we had a lean mean, power, memory, and CPU efficient, personal sensor machine.&lt;/p&gt;
+&lt;h1 id=&#34;asynchronous-procedure-calls&#34;&gt;Asynchronous Procedure Calls&lt;/h1&gt;
+&lt;p&gt;I mentioned that the dispatch loop is responsible for determining which function gets run next, but what are those functions exactly?&lt;/p&gt;
+&lt;p&gt;Asynchronicity is at the heart of Band, including function calls. Band provides a primitive called an Asynchronous Procedure Calls, basically the capability to schedule a function to run at some future point in time, write this line of code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ScheduleApc(myFunctionPointer, 20)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and your function will run 20 milliseconds from now.&lt;/p&gt;
+&lt;p&gt;That is the basics of an APC, and it is an incredibly powerful concurrency primitive, but what I presented above isn&amp;rsquo;t enough, what you actually need is this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AbortAndEnqueue(functionPtr, contextPtr, delay)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your function is already set to run, it needs to be removed from the queue of upcoming functions and added back in again&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, and you need the ability to pass parameters into your function, thus a context pointer that should ideally point to a structure containing all the values your function needs to run. (Because this was done in straight C, we used a &lt;code&gt;void *&lt;/code&gt;. ;) )&lt;/p&gt;
+&lt;p&gt;From a functional programming perspective, this context pointer is basically used to manually capture any state, but it is very flexible and can be used for a lot of other things as well.&lt;/p&gt;
+&lt;p&gt;Band&amp;rsquo;s dispatch loop maintained an ordered queue of APCs, by way of &lt;a href=&#34;https://www.data-structures-in-practice.com/intrusive-linked-lists/&#34;&gt;intrusive linked lists&lt;/a&gt;, sorted by &lt;code&gt;delay&lt;/code&gt;. Because Band had no heap, the code in charge of managing APCs could not allocate linked list nodes at runtime. Instead, any code that wants to schedule an APC has to statically declare (compile time allocate) a structure like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;typedef void (*ApcCallback)(void* context);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;typedef struct Apc {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ApcCallback callback;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    void* context;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uint32_t delay;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    // Internal use only below this line
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    *Apc previousApc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    *Apc nextApc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At the end of this article is a full example showing usage of APCs.&lt;/p&gt;
+&lt;p&gt;Band&amp;rsquo;s usage of intrusive linked lists was an improvement over the original design where the dispatcher maintained its own fixed size ordered queue. The fixed queue size limited the number of APCs in system, and after bumping into the limit enough times we switched over to intrusive lists.&lt;/p&gt;
+&lt;p&gt;As an aside on the use of linked list, Band used SRAM with 1 cycle access latency, meaning linked lists were almost as fast as arrays, and as a result Band used them all over the place.&lt;/p&gt;
+&lt;p&gt;APCs themselves got used for everything on Band:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The calendar reminder, just schedule an APC for whenever the next event should fire and pass in the event&amp;rsquo;s details through the &lt;code&gt;context&lt;/code&gt; pointer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Screen timeout, when the screen turns on, schedule an APC for &lt;em&gt;delay&lt;/em&gt; milliseconds to turn the screen off. Every time the user touches the screen, abort the APC and re-enqueue it, thereby resetting the countdown.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the user turns the screen off early, just abort the timeout APC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The entire sunscreen reminder experience is just a handful of APCs that I designed the logic for in a couple of hours.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;APCs with 0 delay are how all IO was done, after the IO finished up, a 0 delay APC was scheduled, which means as soon as the CPU was available, the results of the IO could be handled. No waiting on locks!&lt;/p&gt;
+&lt;p&gt;Until you have programmed with them, it is hard to explain just how powerful this concept is.&lt;/p&gt;
+&lt;p&gt;Returning to the dispatch loop, we can now understand that it was responsible for determining which Asynchronous Procedure Calls (basically functions that are called when a timer goes off) to run, &lt;a href=&#34;https://en.wikipedia.org/wiki/Timer_coalescing&#34;&gt;coalescing timers&lt;/a&gt; to save power on those APCs, setting hardware timers for waking up the CPU, and finally, controlling power states.&lt;/p&gt;
+&lt;h1 id=&#34;async-io-with-callbacks&#34;&gt;Async IO with callbacks&lt;/h1&gt;
+&lt;p&gt;Band did not allow blocking IO. Instead, IO worked by requesting an operation, and passing a callback that was to be used to notify of either the result or an error. This is a pretty common pattern now days, but back in 2014 we needed a non-blocking, no malloc, embedded filesystem that was resilient against power loss and data corruption (CRC&amp;rsquo;s at minimum preferred) and we could not find one on the market. Multiple file system vendors outright told us what we wanted was impossible, their basic attitude was that asking for 100% non-blocking was insane, and that we must be fools&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. So we had one man on the team, Bob Lockhart (LinkedIn profile not available sadly), wrote a file system for us from scratch.&lt;/p&gt;
+&lt;p&gt;This is another topic I&amp;rsquo;ll need to explore more of in a future post.&lt;/p&gt;
+&lt;h1 id=&#34;aggressive-sleeping&#34;&gt;Aggressive Sleeping&lt;/h1&gt;
+&lt;p&gt;As mentioned above, Band used APC coalescing to save on power. Timer coalescing is common on mobile products, and in general it means if three tasks are scheduled close together; one in 10 milliseconds, one in 15 milliseconds, and one in 20 millisecond, rather than wake up 3 times in a row, just push the first 2 events back by a bit and run all three tasks 20 milliseconds from now.&lt;/p&gt;
+&lt;p&gt;For Band, the contract for scheduling an APC is that the APC would be called &lt;em&gt;no sooner than&lt;/em&gt; its delay, but possibly an &lt;em&gt;indefinite time after&lt;/em&gt; its delay. Band actually had maximum skew value of several milliseconds, so things never got too out of hand.&lt;/p&gt;
+&lt;h1 id=&#34;putting-it-all-together&#34;&gt;Putting it all together&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;ll now show some an example of what writing for Band was like. This code is by no means real, it exists to demonstrate the basic principals of programming with APCs. Business logic is simplified and edge cases are ignored.&lt;/p&gt;
+&lt;p&gt;The below code handles sun exposure reminders and is designed to remind people to apply sunscreen when they are outside. The spec for the feature is as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Sun exposure is defined as a UV Index of at least 3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the user has an initial 15 minutes of continuous sun exposure, fire off an alert reminding them to put on sun screen, then every 4 hours (in the actual product is was configurable from 90 minutes to 4 hours) after that show a reminder to re-apply.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If after sun exposure starts and an alert has been fired off, a continuous interruption in sun exposure for more than 10 minutes cancels the 4 hours reminder timer a. An interruption for less than 10 minutes does not reset the timer, (bathroom break at the beach) b. After the 4 hours timer is cancelled, subsequent 15 minutes of continuous exposure afterwards will fire off another initial alert&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These simple rules are designed to prevent Band from reminding someone to put on sunscreen when they are walking from their car to go inside a store, while at the same time if someone is playing in the sun and goes to the bathroom, the system should track that as being part of a single session. It also will start a new session if someone is at the beach, sits down for lunch inside a restaurant, then goes back outside.&lt;/p&gt;
+&lt;p&gt;The code below is simplified from what was on Band, the actual Band combines reading from the screen&amp;rsquo;s automatic light sensor (ALS) and the UV sensor to determine if the wearer is inside or outside, and on an actual Band reminder times were customizable.&lt;/p&gt;
+&lt;p&gt;The UI was codenamed Fireball (because we wanted it to be called something cool), which is why you see that mentioned in regards to the UI below.&lt;/p&gt;
+&lt;p&gt;Some things to note, the UV sensor takes in a callback an every minute it reports the current UV index to everyone who subscribes. This subscription system was based on C# events.&lt;/p&gt;
+&lt;p&gt;And again, apologizes for the rusty, likely very incorrect, C code.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; inited &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; false;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Apc uvInitialAlertApc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Apc uvFourHourAlertApc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Apc uvCancellationApc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Only show UV alerts if UV index is at least 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Cancel alerts if index falls below 3 for 10 minutes.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#DEFINE UVINDEX_ALERT_THRESHOLD 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;structure that describes a subscription, future
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;blog post coming, if you know C# subscriptions 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;you get the gist of it. When the UV sensors
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;reads a value, sends to all subscribers via callbacks.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;UvExposureSubscription uvSub; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Called on system boot
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(inited) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    inited&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvInitialAlertApc.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;uvInitialAlert;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvInitialAlertApc.context &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;GLOBAL_UI_CONTEXT; &lt;span style=&#34;color:#75715e&#34;&gt;// Handle to UI framework
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvFourHourAlertApc.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;uvFourHourAlert;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvFourHourAlertApc.context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;GLOBAL_UI_CONTEXT;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvCancellationApc.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;cancelAlerts;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvCancellationApc.context &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; null;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    uvSub.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;uvExposureHandlerInitial;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Subscribe to the UV module
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;UvExposureModule_Subscribe&lt;/span&gt;(uvSub);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Subscription handler from the module that calculates UV exposure.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Every 1 minute UV module calls its subscribers and reports
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// the detected UV Index.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uvExposureHandlerInitial&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;uint8_t&lt;/span&gt; uvIndex) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(uvIndex &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; UVINDEX_ALERT_THRESHOLD) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortAndEnqueue&lt;/span&gt;(uvInitialAlertApc, &lt;span style=&#34;color:#a6e22e&#34;&gt;MINS_TO_MS&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortAndEnqueue&lt;/span&gt;(uvCancellationApc, &lt;span style=&#34;color:#a6e22e&#34;&gt;MINS_TO_MS&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;  Next line changes what callback handles summing exposure values,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;  in essence this is progressing  our state machine.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;  */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  uvSub.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;uvExposureHandler; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Called every 1 minute after initial exposure
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uvExposureHandler&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;uint8_t&lt;/span&gt; index) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(index &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; UVINDEX_ALERT_THRESHOLD) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Reset the cancellation APC to another 10 minutes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortAndEnqueue&lt;/span&gt;(uvCancellationApc, &lt;span style=&#34;color:#a6e22e&#34;&gt;MINS_TO_MS&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// If below alert threshold, do nothing, cancellation 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// apc will take care of things.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Will get called after 15 minutes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uvInitialAlert&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; uiContext) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;FireballUI_SendMessage&lt;/span&gt;((FbContext) uiContext, INITIAL_UV_ALERT);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// On real Band, user was given choice after initial alert
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// if they wanted to receive future alerts.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortAndEnqueue&lt;/span&gt;(uvFourHourApc, &lt;span style=&#34;color:#a6e22e&#34;&gt;HOURS_TO_MS&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uvFourHourAlert&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; uiContext) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// No need to check exposure threshold, if not cancelled, good to go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;FireballUI_SendMessage&lt;/span&gt;((FbContext) uiContext, SUNSCREEN_REMINDER);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortAndEnqueue&lt;/span&gt;(uvFourHourApc, &lt;span style=&#34;color:#a6e22e&#34;&gt;HOURS_TO_MS&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// This gets called if UV index has been below 3 for
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// the last 10 minutes.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cancelAlerts&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// We don&amp;#39;t know which is runnign so abort both.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Aborting an APC that isn&amp;#39;t scheduled is a no-op.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortApc&lt;/span&gt;(uvFourHourApc);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;AbortApc&lt;/span&gt;(uvInitialAlertApc);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Go back to the initial uv handler, reseting our state
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  uvSub.callback &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;uvExposureHandlerInitial;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;When proposing APCs as our concurrency primitive I actually had to prove the need for dequeuing to the team, if you don&amp;rsquo;t always dequeue first you end up in some strange situations regarding state&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Now days multiple open source solutions exist that fulfill all these requirements&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>History of Microsoft Joule (Band v0): Part 1</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/</link>
+      <pubDate>Sat, 14 Jan 2023 07:15:54 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/</guid>
+      <description>&lt;p&gt;&lt;em&gt;(Image Credits:&lt;/em&gt; &lt;a href=&#34;https://consolevariations.com/variation/prototype/xbox-watch-prototype&#34;&gt;&lt;em&gt;https://consolevariations.com/variation/prototype/xbox-watch-prototype&lt;/em&gt;&lt;/a&gt;&lt;em&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;(Note: The below is a recollection from memory of events that happened 11 years ago. Inaccuracies are likely, if any member of the Joule team wants to reach out with corrections, please do so!)&lt;/p&gt;
+&lt;p&gt;In January of 2011, Marvin, Microsoft&amp;rsquo;s egg-shaped household robot, had been canceled (a separate story!) and I needed a new job[1].&lt;/p&gt;
+&lt;p&gt;I was called in to interview for a top-secret project, wherein I sat down in front of &lt;a href=&#34;https://www.linkedin.com/in/lorenzotessiore/&#34;&gt;Lorenzo&lt;/a&gt;[2] for an hour, he asked me a few in-depth questions about the .net framework, I think a question about C++ or two, no coding was done, and I am somewhat certain he said to me &amp;ldquo;yeah, you&amp;rsquo;ll do&amp;rdquo;.&lt;/p&gt;</description>
+      <content>&lt;p&gt;&lt;em&gt;(Image Credits:&lt;/em&gt; &lt;a href=&#34;https://consolevariations.com/variation/prototype/xbox-watch-prototype&#34;&gt;&lt;em&gt;https://consolevariations.com/variation/prototype/xbox-watch-prototype&lt;/em&gt;&lt;/a&gt;&lt;em&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;(Note: The below is a recollection from memory of events that happened 11 years ago. Inaccuracies are likely, if any member of the Joule team wants to reach out with corrections, please do so!)&lt;/p&gt;
+&lt;p&gt;In January of 2011, Marvin, Microsoft&amp;rsquo;s egg-shaped household robot, had been canceled (a separate story!) and I needed a new job[1].&lt;/p&gt;
+&lt;p&gt;I was called in to interview for a top-secret project, wherein I sat down in front of &lt;a href=&#34;https://www.linkedin.com/in/lorenzotessiore/&#34;&gt;Lorenzo&lt;/a&gt;[2] for an hour, he asked me a few in-depth questions about the .net framework, I think a question about C++ or two, no coding was done, and I am somewhat certain he said to me &amp;ldquo;yeah, you&amp;rsquo;ll do&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;I reported to work a few days later wherein I was told I was now working for the Xbox Accessories team, however, they were very busy, didn&amp;rsquo;t have a place for me to sit, and therefore I&amp;rsquo;d be working out of a storage closet in Lorenzo&amp;rsquo;s building. Storage closet turned out to be an understatement, it was the size of a small conference room and its sole contents were me, and a very large desk.&lt;/p&gt;
+&lt;p&gt;My job was to reduce the code footprint of the &lt;a href=&#34;https://en.wikipedia.org/wiki/.NET_Micro_Framework&#34;&gt;.NET Micro Framework&lt;/a&gt;. Initially, I was to remove unused code, and after that rewrite needed code to be more space efficient in exchange for losing some speed. Lorenzo was interesting to work for, he&amp;rsquo;d yell at me if I brought him stupid code, and if I brought him correct code that he thought was stupid, he&amp;rsquo;d yell at me then come back a bit later and apologize for yelling. He would also openly admit to stupid things he had done, and even though he was very busy, he always had time to answer my questions in depth and explain the, rather complicated to a newcomer, architecture of netMF.&lt;/p&gt;
+&lt;p&gt;So for the first three or so months, I was sitting in a storage closet optimizing C++ code, alternating between getting yelled, and joking with, a very brilliant, very Italian, engineer.&lt;/p&gt;
+&lt;p&gt;My only inkling of what was going on[3] was now and then some engineers from &lt;a href=&#34;https://www.frog.co/work&#34;&gt;Frog Design&lt;/a&gt; would email a ZIP file containing the C# source code for a UI to a wearable app that tracked runs and weight lifting. I was to extract the source, build it against my optimized .netmf runtime, and make sure everything still functioned.&lt;/p&gt;
+&lt;p&gt;One week I had pretty much finished optimizing everything I could when an email from Frog was sent out to the team distribution list saying the contract period had ended and that the final version of the UI was attached. Turns out the Xbox Accessories team had signed a fixed-length contract for a UI, and the contract had come to an end[4].&lt;/p&gt;
+&lt;p&gt;A short time later another email went out asking if anyone was around who could make some more changes to the UI. I had never met anyone else on the team, had no idea who these other people were, just a few inklings what the overall project was about really (other than it being some sort of fitness device), but I had just spent a month rewriting large pieces of .netmf&amp;rsquo;s version of &lt;a href=&#34;https://en.wikipedia.org/wiki/Windows_Presentation_Foundation&#34;&gt;WPF&lt;/a&gt;, and I wanted to stay employed, so I replied that I could make the changes.&lt;/p&gt;
+&lt;p&gt;And that is how I became the UI developer for Microsoft Joule.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

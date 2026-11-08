@@ -15,12 +15,10 @@
       <pubDate>Mon, 06 Jul 2026 13:43:35 -0700</pubDate>
       <author>devlin.bentley@gmail.com (Devlin)</author>
       <guid>https://www.generativestorytelling.ai/blog/posts/microsoft-kin-sharp/</guid>
-      <description>&lt;h1 id=&#34;how-microsoft-kin-helped-bankrupt-sharp-electronics&#34;&gt;How Microsoft Kin Helped Bankrupt Sharp Electronics&lt;/h1&gt;
-&lt;p&gt;Preface: Everything in this story is hearsay, told to me by someone who was directly involved in the events but who sometimes embellished around the edges. Also there were many contributing factors to the downfall of Sharp Electronics, however the events that transpired sure didn&amp;rsquo;t help things along.&lt;/p&gt;
+      <description>&lt;p&gt;Preface: Everything in this story is hearsay, told to me by someone who was directly involved in the events but who sometimes embellished around the edges. Also there were many contributing factors to the downfall of Sharp Electronics, however the events that transpired sure didn&amp;rsquo;t help things along.&lt;/p&gt;
 &lt;h1 id=&#34;sins-of-the-father&#34;&gt;Sins Of The Father&lt;/h1&gt;
 &lt;p&gt;Microsoft Band 2 needed a curved screen. Circa 2014 only 2 companies made curved screens, Samsung, and Sharp. Samsung, who at the time had a competing product to Band, offered to sell us a 1.3 in screen for only $35 per unit. I asked the guy in charge of sourcing what options we had. &amp;ldquo;Well, we called up Sharp, but they literally won&amp;rsquo;t pick up the phone for us anymore. That is our fault.&amp;rdquo;&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;how-microsoft-kin-helped-bankrupt-sharp-electronics&#34;&gt;How Microsoft Kin Helped Bankrupt Sharp Electronics&lt;/h1&gt;
-&lt;p&gt;Preface: Everything in this story is hearsay, told to me by someone who was directly involved in the events but who sometimes embellished around the edges. Also there were many contributing factors to the downfall of Sharp Electronics, however the events that transpired sure didn&amp;rsquo;t help things along.&lt;/p&gt;
+      <content>&lt;p&gt;Preface: Everything in this story is hearsay, told to me by someone who was directly involved in the events but who sometimes embellished around the edges. Also there were many contributing factors to the downfall of Sharp Electronics, however the events that transpired sure didn&amp;rsquo;t help things along.&lt;/p&gt;
 &lt;h1 id=&#34;sins-of-the-father&#34;&gt;Sins Of The Father&lt;/h1&gt;
 &lt;p&gt;Microsoft Band 2 needed a curved screen. Circa 2014 only 2 companies made curved screens, Samsung, and Sharp. Samsung, who at the time had a competing product to Band, offered to sell us a 1.3 in screen for only $35 per unit. I asked the guy in charge of sourcing what options we had. &amp;ldquo;Well, we called up Sharp, but they literally won&amp;rsquo;t pick up the phone for us anymore. That is our fault.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Wait, what? Why won&amp;rsquo;t Sharp do business with Microsoft, one of the world&amp;rsquo;s largest companies, anymore?&lt;/p&gt;
@@ -32,6 +30,86 @@
 &lt;p&gt;We ended up paying Samsung $35 per screen, or something thereabouts. I may be misremembering the exact number, but the screen price basically doomed us to never being profitable. Other devices competing with Band 2 cost less than $35 in total to manufacture.&lt;/p&gt;
 &lt;h1 id=&#34;lessons-learned&#34;&gt;Lessons Learned?&lt;/h1&gt;
 &lt;p&gt;Even in the corporate world, at the highest levels, karma exists and mistreating others can hurt even the largest of companies.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>History of Microsoft Joule (Band v0) Part 2</title>
+      <link>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-2/</link>
+      <pubDate>Wed, 25 Jan 2023 07:56:56 +0000</pubDate>
+      <author>devlin.bentley@gmail.com (Devlin)</author>
+      <guid>https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/&#34;&gt;When we last left off&lt;/a&gt;, I had just reduced the code size of the .net microframework by 50% and reduced the runtime memory requirements from 2 megabytes down to 60 Kibibytes. (Lesson learned: inexperienced people don&amp;rsquo;t know what isn&amp;rsquo;t possible, and can therefore accomplish the impossible)&lt;/p&gt;
+&lt;p&gt;This post will dive more into the technical side of Joule, and as with any technical deep dive, the first place to start is with the specs!&lt;/p&gt;</description>
+      <content>&lt;p&gt;&lt;a href=&#34;https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-1/&#34;&gt;When we last left off&lt;/a&gt;, I had just reduced the code size of the .net microframework by 50% and reduced the runtime memory requirements from 2 megabytes down to 60 Kibibytes. (Lesson learned: inexperienced people don&amp;rsquo;t know what isn&amp;rsquo;t possible, and can therefore accomplish the impossible)&lt;/p&gt;
+&lt;p&gt;This post will dive more into the technical side of Joule, and as with any technical deep dive, the first place to start is with the specs!&lt;/p&gt;
+&lt;p&gt;The same warning as last time applies: everything in this post is from my long unaccessed memory and I haven&amp;rsquo;t bothered to double-check anything.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Accelerometer, HR Sensor, GPS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Two K60 MCUs&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connected via a UART&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;128x128 16bit LCD screen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4 (!!) capacitive screen touch sensors (typical devices have hundreds) wired directly to the A/D inputs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A ludicrously oversized battery&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ran the .net Microframework on both CPUs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modestly sized flash chip for storage utilizing FAT32&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All wrapped up in a very durable case that was plastic in front, and metal in the back.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For anyone in the know about embedded, these specs raise a lot of questions. Let&amp;rsquo;s go through those questions one at a time; it&amp;rsquo;s &lt;a href=&#34;https://escapepod.org/&#34;&gt;story time&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;what-exactly-was-joule-supposed-to-do&#34;&gt;What Exactly Was Joule Supposed To Do?&lt;/h1&gt;
+&lt;p&gt;The way I heard it, and this is one of those &amp;ldquo;friend of a friend told me&amp;rdquo; types of things, some &lt;a href=&#34;https://en.wikipedia.org/wiki/Boffin&#34;&gt;boffins&lt;/a&gt; from &lt;a href=&#34;https://en.wikipedia.org/wiki/Microsoft_Research&#34;&gt;Microsoft Research&lt;/a&gt; showed a cool demo where they attached accelerometers up to the arms of a volunteer, had that person go on stage, do push-ups, jumping jacks, bench presses, and the like, and at the end of it all a beefy computer hidden behind a curtain counted how many repetitions of each exercise the person did. I&amp;rsquo;ll also take a guess and say that the demo was very carefully staged.&lt;/p&gt;
+&lt;p&gt;Sometime after the demo, orders went out to productize this technology as a wearable device that cost under $100. (As always, if anyone has firsthand accounts that better explain the history of Joule, please get in touch! I&amp;rsquo;d love to perform more accurate historical documentation!)&lt;/p&gt;
+&lt;p&gt;Joule was an exercise accessory that counted how many reps users did of different exercises. A GPS was thrown in there for running, and a heart rate monitor was added presumably because that was the single most obvious thing to add to the product.&lt;/p&gt;
+&lt;p&gt;Please remember that fitness wearables were not yet a well-defined thing. The most common wearable that you&amp;rsquo;d see around 2011/2012 was people running with an &lt;a href=&#34;https://duckduckgo.com/?q=ipod&amp;#43;nano&amp;#43;armband&amp;amp;va=l&amp;amp;t=hc&amp;amp;iar=images&amp;amp;iax=images&amp;amp;ia=images&#34;&gt;iPod nano strapped to their arm&lt;/a&gt;. Single-purpose step counters were huge, but that was the extent of the fitness wearables market.&lt;/p&gt;
+&lt;p&gt;Since Joule was designed by the Xbox Accessories team, one assumes it would pair with the Xbox 360 and ship with some cool at-home fitness game, and that idea was indeed proposed, but at some point shuttered. (If you are reading this and you know anything more about the aborted efforts in this direction, please &lt;a href=&#34;https://meanderingthoughts.hashnode.dev/contact&#34;&gt;get in touch&lt;/a&gt;!)&lt;/p&gt;
+&lt;p&gt;This does bring up a question: Why was the Xbox Accessories team working on a hardware product that didn&amp;rsquo;t have any guaranteed software support? Well, Xbox 360 work largely happened across two buildings, Studio A did software stuff, and Studio B did hardware stuff. To greatly simplify a complex topic, the relationship was frequently dysfunctional[1], and Joule requiring pairing with a 360 was always an on-again-off-again sort of thing (at least the way I heard it) and from the get-go Joule was perfectly happy functioning without an accompanying Xbox.&lt;/p&gt;
+&lt;h1 id=&#34;why-2-mcus&#34;&gt;Why 2 MCUs&lt;/h1&gt;
+&lt;p&gt;For people who are not familiar with the world of embedded MCUs, it is important to understand that MCUs have a very small amount of onboard storage called program flash (p-flash), and that space cannot be expanded. Code stored in p-flash can be executed in place, meaning it doesn&amp;rsquo;t have to be loaded into RAM, and likewise, resources in p-flash (such as fonts) can be used without consuming RAM. Code on external flash has to be first loaded into RAM before it is executed (exceptions exist, none of which apply to Joule). The same logic applies to things like images, icons, and fonts. If you have 100KB of fonts, they have to live in p-flash, because the entire MCU only has 128KB of RAM!&lt;/p&gt;
+&lt;p&gt;As I regaled previously, I was originally brought on to reduce the size of the .netMF runtime to fit on the K60, which has 512 Kilobytes of Flash. (I don&amp;rsquo;t recall if the K60 variant we used had the full 512KB but I assume it did.) Prior to my efforts, the framework clocked in at around 2 megabytes[2]. I was successful in my reduction efforts, but once application code, fonts, and icons were added, we still didn&amp;rsquo;t fit all on one MCU.&lt;/p&gt;
+&lt;p&gt;There was of course a lot of other code that ran on the MCU. Primarily lots of ML models to count repetitions, followed by the necessary custom math libraries, and some super wacky 3rd party licensed code for step counting that internally measured everything in &lt;a href=&#34;https://en.wikipedia.org/wiki/Thousandth_of_an_inch&#34;&gt;mils&lt;/a&gt; (we had to convert from and to metric whenever we got close to that section of the code)[3]&lt;/p&gt;
+&lt;p&gt;Math was done, and it was realized that there was no way we were going to fit everything, ML models, fonts, and the .netMF runtime, in 512KB. The K60 was already the largest MCU around at that time (512KB p-flash and 128KB SRAM were obscene back then!), there just wasn&amp;rsquo;t anything larger on the market.&lt;/p&gt;
+&lt;p&gt;When all seemed lost, someone (probably &lt;a href=&#34;https://www.linkedin.com/in/hingov/&#34;&gt;Vinod&lt;/a&gt;) had a crazy idea: Put two K60s in the product and wire them together. Put the ML stuff, drivers, and fancy math libraries on the primary CPU, and put the UI and all its assets on the secondary MCU.&lt;/p&gt;
+&lt;p&gt;And thus the day was saved.&lt;/p&gt;
+&lt;h1 id=&#34;why-the-tiny-screen&#34;&gt;Why The Tiny Screen?&lt;/h1&gt;
+&lt;p&gt;I have no idea, I presume it was cheap. Joule had some horrible display controller hooked up over SPI, and the device couldn&amp;rsquo;t even manage 30 FPS. I am 99.99% sure it didn&amp;rsquo;t use DMA for data transfers, which was at least partially why the FPS was so low. The screen was so bad you could easily count the pixels without a magnifying glass. Everything looked terrible on it.&lt;/p&gt;
+&lt;p&gt;On the plus side, cheap plastic screens are durable, I would frequently play hacky sack with Joules up and down the hallways of Studio B at night. They were virtually indestructible.&lt;/p&gt;
+&lt;h1 id=&#34;four-touch-sensors&#34;&gt;Four Touch Sensors&lt;/h1&gt;
+&lt;p&gt;Typically a phone screen has thousands, if not tens of thousands, of touch sensors, each one incredibly tiny.&lt;/p&gt;
+&lt;p&gt;Joule had this touch sensor layout:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.generativestorytelling.ai/blog/posts/history-of-microsoft-joule-band-v0-part-2/image-48872dc11049.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Each one of those squares is a distinct &amp;ldquo;touch&amp;rdquo;, as in only 1 button could be supported in each square, and movements within a square could not be detected. It is hard to even describe what this means and how bad it is. Later in the project efforts were taken to improve things, and maybe someday I&amp;rsquo;ll write a post just about the touch screen adventures we had.&lt;/p&gt;
+&lt;p&gt;Why only four sensors? Presumably, because no one thought to add a touch controller. Why no touch controller? Good question.&lt;/p&gt;
+&lt;h1 id=&#34;giant-battery&#34;&gt;Giant Battery&lt;/h1&gt;
+&lt;p&gt;The battery was obscenely large. That was a good thing because no power management existed. While turned on, Joule ran its 2 CPUs at full speed, all the time. If I recall, battery life was 4 to 6 hours, which was deemed good enough for a week of hour-long workout sessions.&lt;/p&gt;
+&lt;h1 id=&#34;why-use-the-net-microframework&#34;&gt;Why Use The .NET Microframework?&lt;/h1&gt;
+&lt;p&gt;I am not sure why .netMF was chosen as the framework for Joule. I suspect it was because Lorenzo had worked with some of the senior and principal engineers in Xbox Accessories, and they went to him asking for help.&lt;/p&gt;
+&lt;p&gt;If it isn&amp;rsquo;t obvious by now, the Xbox Accessories team, at the time, wasn&amp;rsquo;t super experienced in making complex UIs. My best guess is they thought doing absolutely everything from scratch would be too large of a task to undertake, and using .netMF at least gave them a UI framework to start with, and finding C# WPF developers back then was pretty darn easy.&lt;/p&gt;
+&lt;p&gt;Also the ecosystem for &amp;ldquo;advanced runtimes for MCUs&amp;rdquo; was not as mature back then as it is today. Nowadays you can just throw something like &lt;a href=&#34;https://en.wikipedia.org/wiki/Mbed&#34;&gt;Mbed&lt;/a&gt; on a chip, pick an open source UI framework, and be done with it.&lt;/p&gt;
+&lt;h1 id=&#34;that-external-flash-chip&#34;&gt;That External Flash Chip&lt;/h1&gt;
+&lt;p&gt;Guided Workouts and user profiles. I&amp;rsquo;ll go into great depth about Guided Workouts in the future. They are awesome. On a closely related note, FAT32 is a horrible filesystem for battery powered devices and accordingly, data was very easy to corrupt.&lt;/p&gt;
+&lt;h1 id=&#34;durable&#34;&gt;Durable&lt;/h1&gt;
+&lt;p&gt;I already mentioned hacky sack. I also frequently roundhouse kicked Joules. One of the test engineers took some Joule&amp;rsquo;s diving, and apparently even the pre-production units had 0 issues with water ingress.&lt;/p&gt;
+&lt;h1 id=&#34;in-summary&#34;&gt;In Summary&lt;/h1&gt;
+&lt;p&gt;Anyone familiar with product design may have noticed that I haven&amp;rsquo;t explained why these decisions came about. Important steps of product design were all skipped, starting with such fundamentals as requirements gathering. The next post will dive into what was going on behind the scenes that allowed this hot mess of a hardware+software design to come into being.&lt;/p&gt;
+&lt;h1 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h1&gt;
 </content>
     </item>
     
